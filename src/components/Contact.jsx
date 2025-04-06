@@ -104,13 +104,13 @@ const Contact = () => {
         <div className="social-media-links text-center mt-5" data-aos="fade-up">
           <h5>Follow Me</h5>
           <div className="social-icons">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/amrit-rai9335014143/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="social-icon" />
             </a>
-            <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/amrit22oct" target="_blank" rel="noopener noreferrer">
               <FaGithub className="social-icon" />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/_its_amrit._?igsh=Z3piMTI1ZWhvaDYz" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="social-icon" />
             </a>
           </div>
