@@ -5,11 +5,12 @@
 body, html, * {
   font-family: 'Poppins', sans-serif;
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 html {
    scroll-behavior: smooth;
-   overflow-x: hidden;
-  
+   overflow-x: hidden; 
  }
  #root {
   overflow: hidden;
@@ -37,8 +38,5 @@ html {
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
  }
  
- /* Home Section */
- 
-
 
  

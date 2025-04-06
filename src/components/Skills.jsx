@@ -74,7 +74,7 @@ const Skills = () => {
                     key={index}
                     className="list-group-item soft-skill-item d-flex align-items-center"
                   >
-                    <span className="me-2">✔️</span> {skill}
+                    {skill}
                   </li>
                 ))}
               </ul>
