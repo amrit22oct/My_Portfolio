@@ -197,3 +197,11 @@
     text-align: center;
   }
 }
+.about-button {
+  text-decoration: none;
+  position: relative;
+}
+
+.about-button:hover {
+  text-decoration: underline;
+}
