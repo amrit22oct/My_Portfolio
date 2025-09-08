@@ -1,29 +1,41 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import About from "./components/About";
-import Qualification from "./components/Qualification";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+import { useState } from "react";
+import Navbar from "./Components/Navbar";
+import Home from "./Section/Home";
+import About from "./Section/About";
 
-const App = () => {
+import Journey from "./Section/Journey";
+import Skills from "./Section/Skills";
+import Projects from "./Section/Projects";
+import Education from "./Section/Education";
+import Services from "./Section/Services";
+import Contacts from "./Section/Contacts";
+import Background from "./Components/Background"; 
+import "./App.css";
+import Footer from "./Section/Footer";
+
+function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <div>
-      <Header />
+    <div className="app-container">
+      {/* Background Effect */}
+      <Background />
+
       
-        <Home />
-        <About />
-        <Qualification />
-        <Skills />
-        <Projects />
-        <Contact />
-        
+      <Navbar />
+      <Home />
+      <About />
+      <Journey />
+      <Skills />
+      <Projects />
+      <Education />
+      <Services />
+      <Contacts />
       
+      <Footer />
+
     </div>
   );
-};
+}
 
 export default App;

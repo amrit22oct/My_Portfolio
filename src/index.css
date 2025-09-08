@@ -1,42 +1,73 @@
-/* Smooth scrolling */
+@import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-body, html, * {
-  font-family: 'Poppins', sans-serif;
+html {
+  scroll-behavior: smooth;
 }
-body::-webkit-scrollbar {
+
+@layer utilities {
+  @keyframes fadeSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fadeSlide {
+    animation: fadeSlide 0.6s ease forwards;
+  }
+
+  @keyframes neonGlow {
+    0%, 100% {
+      text-shadow: 0 0 5px #ff4fff, 0 0 15px #ff66ff;
+    }
+    50% {
+      text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff00ff;
+    }
+  }
+  .animate-neonGlow {
+    animation: neonGlow 2s infinite alternate;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+::-webkit-scrollbar {
   display: none;
 }
-html {
-   scroll-behavior: smooth;
-   overflow-x: hidden; 
- }
- #root {
-  overflow: hidden;
-  background-color: #121212;
- }
-.main-box {
-   margin-top: 3.3rem;
-   margin-left: 0;
-   margin-right: 0;
-   width: 100%;
-   height: 100%;
-}
- 
- /* Projects Card Hover Effect */
- .card:hover {
-   transform: scale(1.05);
-   transition: transform 0.3s ease-in-out;
- }
- 
- /* Form Styling */
- form {
-   background: #f9f9f9;
-   padding: 20px;
-   border-radius: 10px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
- }
- 
 
- 
+/* Hide scrollbar for Firefox, IE, Edge */
+html, body {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Global anchor reset */
+a {
+  text-decoration: none !important;
+}
+
+@layer utilities {
+  @keyframes morph {
+    0%   { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+    25%  { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+    50%  { border-radius: 30% 70% 40% 60% / 60% 40% 70% 30%; }
+    75%  { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; }
+    100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+  }
+  .animate-morph {
+    animation: morph 25s ease-in-out infinite alternate;
+  }
+
+  @keyframes rippleAnim {
+    to {
+      transform: translate(-50%, -50%) scale(15);
+      opacity: 0;
+    }
+  }
+  .animate-ripple {
+    transform: translate(-50%, -50%) scale(0);
+    animation: rippleAnim 1s ease-out forwards;
+  }
+}
