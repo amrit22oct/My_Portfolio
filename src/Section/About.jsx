@@ -1,15 +1,6 @@
-import { useEffect, useState } from "react";
 import CodingGif from "../assets/Coding Develio.gif";
 
 const About = () => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       id="about"
@@ -63,6 +54,7 @@ const About = () => {
         <img
           src={CodingGif}
           alt="Coding GIF"
+          loading="lazy"
           className="w-[80%] sm:w-[70%] md:w-[450px] max-w-[480px] rounded-2xl transition-transform duration-700 animate-[float_6s_ease-in-out_infinite] shadow-[0_0_20px_rgba(0,224,255,0.4)] hover:scale-105"
         />
       </div>

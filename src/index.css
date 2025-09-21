@@ -1,35 +1,8 @@
 @import "tailwindcss";
 
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
-}
-
-@layer utilities {
-  @keyframes fadeSlide {
-    0% {
-      opacity: 0;
-      transform: translateY(-40px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .animate-fadeSlide {
-    animation: fadeSlide 0.6s ease forwards;
-  }
-
-  @keyframes neonGlow {
-    0%, 100% {
-      text-shadow: 0 0 5px #ff4fff, 0 0 15px #ff66ff;
-    }
-    50% {
-      text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff00ff;
-    }
-  }
-  .animate-neonGlow {
-    animation: neonGlow 2s infinite alternate;
-  }
 }
 
 /* Hide scrollbar for Chrome, Safari, Opera */
@@ -40,7 +13,7 @@ html {
 /* Hide scrollbar for Firefox, IE, Edge */
 html, body {
   -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+  scrollbar-width: none;      /* Firefox */
 }
 
 /* Global anchor reset */
@@ -48,26 +21,11 @@ a {
   text-decoration: none !important;
 }
 
-@layer utilities {
-  @keyframes morph {
-    0%   { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
-    25%  { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
-    50%  { border-radius: 30% 70% 40% 60% / 60% 40% 70% 30%; }
-    75%  { border-radius: 40% 60% 30% 70% / 70% 30% 60% 40%; }
-    100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
-  }
-  .animate-morph {
-    animation: morph 25s ease-in-out infinite alternate;
-  }
-
-  @keyframes rippleAnim {
-    to {
-      transform: translate(-50%, -50%) scale(15);
-      opacity: 0;
-    }
-  }
-  .animate-ripple {
-    transform: translate(-50%, -50%) scale(0);
-    animation: rippleAnim 1s ease-out forwards;
-  }
+/* Optional: global body styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000; /* full black */
+  color: #fff;
 }

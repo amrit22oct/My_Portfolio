@@ -1,40 +1,25 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import ResumePDF from "../assets/Amrit_rai_resume.pdf";
 
-const Home = () => {
-  const animatedTexts = [
-    "Software Developer.",
-    "Full-Stack Developer.",
-    "MERN Stack Developer.",
-  ];
-  const [currentText, setCurrentText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [typing, setTyping] = useState(true);
-  const [charIndex, setCharIndex] = useState(0);
+// Static arrays (not recreated on each render)
+const animatedTexts = [
+  "Software Developer.",
+  "Full-Stack Developer.",
+  "MERN Stack Developer.",
+];
 
-  useEffect(() => {
-    let timeout;
-    if (typing) {
-      if (charIndex < animatedTexts[currentIndex].length) {
-        timeout = setTimeout(() => setCharIndex(charIndex + 1), 120);
-      } else {
-        timeout = setTimeout(() => setTyping(false), 1500);
-      }
-    } else {
-      if (charIndex > 0) {
-        timeout = setTimeout(() => setCharIndex(charIndex - 1), 80);
-      } else {
-        setTyping(true);
-        setCurrentIndex((currentIndex + 1) % animatedTexts.length);
-      }
-    }
-    setCurrentText(animatedTexts[currentIndex].slice(0, charIndex));
-    return () => clearTimeout(timeout);
-  }, [charIndex, typing, currentIndex, animatedTexts]);
+const links = [
+  "https://www.linkedin.com/in/amrit-rai9335014143/",
+  "https://github.com/amrit22oct",
+  "https://leetcode.com/u/amrit22oct/",
+  "https://www.instagram.com/_its_amrit._/",
+];
 
-  const code = `function portfolio() {
+const neonColors = ["#00ffff", "#ff4fff", "#00ff90", "#ffb700"];
+
+const code = `function portfolio() {
   const name = "Amrit Rai";
 
   const skills = [
@@ -55,15 +40,48 @@ const Home = () => {
 
 portfolio();`;
 
-  const escapeHtml = (s) =>
-    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const Home = () => {
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [typing, setTyping] = useState(true);
+  const [charIndex, setCharIndex] = useState(0);
 
-  const highlight = (line) => {
-    let s = escapeHtml(line);
-    s = s.replace(
-      /"([^"\\]|\\.)*"/g,
-      '<span style="color:#00ff90;">$&</span>'
-    );
+  // Typing animation effect
+  useEffect(() => {
+    let timeout;
+    if (typing) {
+      if (charIndex < animatedTexts[currentIndex].length) {
+        timeout = setTimeout(() => {
+          setCharIndex((prev) => prev + 1);
+          setCurrentText(animatedTexts[currentIndex].slice(0, charIndex + 1));
+        }, 120);
+      } else {
+        timeout = setTimeout(() => setTyping(false), 1500);
+      }
+    } else {
+      if (charIndex > 0) {
+        timeout = setTimeout(() => {
+          setCharIndex((prev) => prev - 1);
+          setCurrentText(animatedTexts[currentIndex].slice(0, charIndex - 1));
+        }, 80);
+      } else {
+        setTyping(true);
+        setCurrentIndex((prev) => (prev + 1) % animatedTexts.length);
+      }
+    }
+    return () => clearTimeout(timeout);
+  }, [charIndex, typing, currentIndex]);
+
+  // Memoized code lines
+  const lines = useMemo(() => code.split("\n"), []);
+
+  // Highlight function with memoization
+  const highlight = useCallback((line) => {
+    let s = line
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    s = s.replace(/"([^"\\]|\\.)*"/g, '<span style="color:#00ff90;">$&</span>');
     s = s.replace(
       /\b(function|const|return)\b/g,
       '<span style="color:#00e0ff;">$1</span>'
@@ -72,14 +90,9 @@ portfolio();`;
       /\b(portfolio)\b(?=\s*\()/g,
       '<span style="color:#ff4fff;">$1</span>'
     );
-    s = s.replace(
-      /\b\d+(\.\d+)?\b/g,
-      '<span style="color:#d4d4d4;">$&</span>'
-    );
+    s = s.replace(/\b\d+(\.\d+)?\b/g, '<span style="color:#d4d4d4;">$&</span>');
     return s;
-  };
-
-  const lines = useMemo(() => code.split("\n"), [code]);
+  }, []);
 
   return (
     <section
@@ -87,104 +100,81 @@ portfolio();`;
       id="home"
     >
       {/* Intro */}
-     {/* Intro */}
-<div className="flex-1 max-w-[650px] w-full flex flex-col items-start text-left gap-6">
-  <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] leading-tight drop-shadow-[0_0_6px_#00e0ff,0_0_15px_#00e0ff]">
-    Hello,
-    <br />
-    This is{" "}
-    <span className="text-[#FF4FFF] drop-shadow-[0_0_1px_#ffffff,0_0_10px]">
-      Amrit Rai
-    </span>
-    ,<br />
-    I'm a Professional
-    <br />
-    <span
-      style={{
-        color: "#FF4FFF",
-        textShadow: "0 0 1px #ffffff, 0 0 10px ",
-        display: "inline-block",
-        marginLeft: "2px",
-        animation: "steps(1) infinite",
-      }}
-    >
-      {currentText}
-    </span>
-  </h1>
+      <div className="flex-1 max-w-[650px] w-full flex flex-col items-start text-left gap-6">
+        <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] leading-tight drop-shadow-[0_0_6px_#00e0ff,0_0_15px_#00e0ff]">
+          Hello,
+          <br />
+          This is{" "}
+          <span className="text-[#FF4FFF] drop-shadow-[0_0_1px_#ffffff,0_0_10px]">
+            Amrit Rai
+          </span>
+          ,<br />
+          I'm a Professional
+          <br />
+          <span
+            style={{
+              color: "#FF4FFF",
+              textShadow: "0 0 1px #ffffff, 0 0 10px ",
+              display: "inline-block",
+              marginLeft: "2px",
+              animation: "steps(1) infinite",
+            }}
+          >
+            {currentText}
+          </span>
+        </h1>
 
+        {/* Social Icons */}
+        <div className="flex gap-6 justify-start">
+          {[FaLinkedin, FaGithub, SiLeetcode, FaInstagram].map((Icon, idx) => (
+            <a
+              key={idx}
+              href={links[idx]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl md:text-2xl relative transition-transform duration-300 hover:-translate-y-1 hover:scale-125"
+              style={{
+                color: neonColors[idx],
+                textShadow: `
+                  0 0 5px ${neonColors[idx]},
+                  0 0 10px ${neonColors[idx]},
+                  0 0 20px ${neonColors[idx]},
+                  0 0 30px ${neonColors[idx]}
+                `,
+                animation: "neonPulse 1.5s infinite alternate",
+              }}
+            >
+              <Icon />
+            </a>
+          ))}
+        </div>
 
-        {/* Social Icons with Neon Hover */}
-       {/* Social Icons with Neon Glow & Pulse */}
-{/* Social Icons with Neon Glow & Pulse */}
-<div className="flex gap-6 justify-start">
-  {[FaLinkedin, FaGithub, SiLeetcode, FaInstagram].map((Icon, idx) => {
-    const links = [
-      "https://www.linkedin.com/in/amrit-rai9335014143/",
-      "https://github.com/amrit22oct",
-      "https://leetcode.com/u/amrit22oct/",
-      "https://www.instagram.com/_its_amrit._/",
-    ];
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-4 justify-start mt-4">
+          <a
+            href="#contact"
+            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#00e0ff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#00e0ff,0_0_40px_#00e0ff]"
+          >
+            Contact Me
+            <span className="absolute -inset-1 rounded-full bg-[#00e0ff] opacity-20 blur-md animate-pulse"></span>
+          </a>
 
-    const neonColors = ["#00ffff", "#ff4fff", "#00ff90", "#ffb700"];
-
-    return (
-      <a
-        key={idx}
-        href={links[idx]}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-3xl md:text-2xl relative transition-transform duration-300 hover:-translate-y-1 hover:scale-125"
-        style={{
-          color: neonColors[idx],
-          textShadow: `
-            0 0 5px ${neonColors[idx]},
-            0 0 10px ${neonColors[idx]},
-            0 0 20px ${neonColors[idx]},
-            0 0 30px ${neonColors[idx]}
-          `,
-          animation: "neonPulse 1.5s infinite alternate",
-        }}
-      >
-        <Icon />
-      </a>
-    );
-  })}
-</div>
-
-{/* Buttons just below Social Icons */}
-<div className="flex flex-wrap gap-4 justify-start mt-4">
-  {/* Contact Me Button */}
-  <a
-    href="#contact"
-    className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#00e0ff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#00e0ff,0_0_40px_#00e0ff]"
-  >
-    Contact Me
-    <span className="absolute -inset-1 rounded-full bg-[#00e0ff] opacity-20 blur-md animate-pulse"></span>
-  </a>
-
-  {/* Resume Button */}
-  <a
-    href={ResumePDF}
-    download="Amrit_Rai_Resume.pdf"
-    className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#ff4fff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#ff4fff,0_0_40px_#ff4fff]"
-  >
-    Resume
-    <span className="absolute -inset-1 rounded-full bg-[#ff4fff] opacity-20 blur-md animate-pulse"></span>
-  </a>
-</div>
-
-
-
-
-
+          <a
+            href={ResumePDF}
+            download="Amrit_Rai_Resume.pdf"
+            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#ff4fff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#ff4fff,0_0_40px_#ff4fff]"
+          >
+            Resume
+            <span className="absolute -inset-1 rounded-full bg-[#ff4fff] opacity-20 blur-md animate-pulse"></span>
+          </a>
+        </div>
       </div>
 
-      {/* VS Code-like Code Box */}
+      {/* Code Box */}
       <div
         className="flex-1 max-w-[600px] w-full bg-[rgba(20,20,20,0.9)] rounded-xl overflow-hidden shadow-lg border border-[rgba(255,255,255,0.08)]"
         style={{ animation: "float 6s ease-in-out infinite" }}
       >
-        {/* Top VS Code Dots */}
         <div className="flex items-center gap-2 px-4 py-2 bg-[rgba(30,30,30,0.9)] border-b border-[rgba(255,255,255,0.1)]">
           <span className="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
           <span className="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
@@ -205,7 +195,6 @@ portfolio();`;
           ))}
         </pre>
 
-        {/* Inline keyframes */}
         <style>{`
           @keyframes blinkCursor {
             0%,50% { opacity: 1; }

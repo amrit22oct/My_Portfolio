@@ -7,22 +7,26 @@ const achievements = [
   { year: "2024", title: "JavaScript – HackerRank", description: "Practiced advanced JS concepts including ES6+, DOM manipulation, async programming." },
   { year: "2025", title: "Node.js (Intermediate) – HackerRank", description: "Built backend APIs, worked with Express, and connected to MongoDB." },
   { year: "2025", title: "Web Development Certification – Internshala", description: "Score: 84%. Learned HTML, CSS, JavaScript, and responsive web design." },
-  
 ];
 
 const Journey = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const handleScrollAnimation = () => {
-      document.querySelectorAll(".timeline-item").forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) item.classList.add("show");
-      });
-    };
-    window.addEventListener("scroll", handleScrollAnimation);
-    handleScrollAnimation();
-    return () => window.removeEventListener("scroll", handleScrollAnimation);
+    const items = containerRef.current?.querySelectorAll(".timeline-item");
+    if (!items) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("show");
+        });
+      },
+      { threshold: 0.2 } // Trigger when 20% of item is visible
+    );
+
+    items.forEach((item) => observer.observe(item));
+    return () => observer.disconnect();
   }, []);
 
   return (
