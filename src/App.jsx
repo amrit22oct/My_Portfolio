@@ -17,8 +17,9 @@ function App() {
     <div className="app-container relative">
       {/* Full-page background effect */}
       <Background />
-       {/* Cursor Tail */}
-       <CursorTrail/>
+
+      {/* Cursor Tail */}
+      <CursorTrail />
 
       {/* Navbar and Sections */}
       <div className="relative z-10">
@@ -36,5 +37,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

@@ -37,7 +37,7 @@ const Journey = () => {
     >
       {/* Title */}
       <div className="text-center mb-16">
-        <h1 className="inline-block border-l-6 border-white pl-4 text-4xl md:text-5xl font-bold text-white animate-glowTitle drop-shadow-lg">
+        <h1 className="inline-block border-l-6 border-white pl-4 text-4xl md:text-5xl font-bold text-white  ">
           My Engineering Journey
         </h1>
       </div>
@@ -47,7 +47,7 @@ const Journey = () => {
         {/* Vertical Line */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-full 
           bg-gradient-to-b from-cyan-400 via-pink-500 to-green-400 
-          rounded-full shadow-[0_0_20px_rgba(0,224,255,0.7),0_0_30px_rgba(255,79,255,0.6),0_0_25px_rgba(0,255,144,0.6)]">
+          rounded-full shadow-[0_0_10px_rgba(0,224,255,0.7),0_0_15px_rgba(255,79,255,0.6),0_0_12px_rgba(0,255,144,0.6)]">
         </div>
 
         {/* Timeline Items */}
@@ -59,25 +59,24 @@ const Journey = () => {
           >
             {/* Dot */}
             <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-1/2 sm:top-5 
-              w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 via-pink-500 to-green-400 
-              shadow-[0_0_20px_rgba(0,224,255,0.8),0_0_30px_rgba(255,79,255,0.7),0_0_40px_rgba(0,255,144,0.6)] 
+              w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 via-pink-500 to-green-400  
               animate-pulse animate-floatDot">
             </div>
 
             {/* Content Box */}
             <div
               className={`relative sm:w-[45%] w-full mt-10 sm:mt-0 
-              bg-[rgba(15,15,15,0.85)] p-6 rounded-3xl border border-[rgba(0,224,255,0.3)] 
-              backdrop-blur-sm hover:-translate-y-4 hover:scale-105 
-              hover:shadow-[0_10px_28px_rgba(0,224,255,0.35),0_8px_20px_rgba(255,79,255,0.3),0_12px_30px_rgba(0,255,144,0.25)] 
+              bg-[rgba(15,15,15,0.85)] p-6 border border-[rgba(0,224,255,0.3)] 
+              backdrop-blur-sm hover:-translate-y-1 hover:scale-[1.008]
+              hover:shadow-[0_6px_6px_rgba(0,224,255,0.35),0_8px_20px_rgba(255,79,255,0.3),0_12px_30px_rgba(0,255,144,0.25)] 
               transition-all duration-500 z-10 ${index % 2 === 0 ? "sm:ml-[55%]" : "sm:mr-[55%]"}`}
             >
               {item.year && (
-                <span className="block mb-2 text-cyan-400 font-bold text-lg drop-shadow-[0_0_12px_rgba(0,224,255,0.9)] tracking-wide">
+                <span className="block mb-2 text-cyan-400 font-bold text-lg tracking-wide">
                   {item.year}
                 </span>
               )}
-              <h3 className="text-pink-500 font-semibold text-xl mb-3 drop-shadow-[0_0_12px_rgba(255,79,255,0.85)]">
+              <h3 className="text-pink-500 font-semibold text-xl mb-3 ">
                 {item.title}
               </h3>
               <p className="text-gray-300 text-base leading-relaxed tracking-wide transition-colors duration-400 hover:text-white">

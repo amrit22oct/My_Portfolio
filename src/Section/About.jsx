@@ -8,7 +8,7 @@ const About = () => {
     >
       {/* About Text */}
       <div className="flex-1 max-w-[650px] flex flex-col items-start text-left gap-6 z-10 lg:ml-[150px]">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_15px_#00e0ff] transition-transform duration-700 hover:scale-105">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white transition-transform duration-700 hover:scale-[1.008]">
           Who I Am
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-[#d4d4d4] leading-relaxed tracking-wide transition-colors duration-500 hover:text-white">
@@ -17,32 +17,32 @@ const About = () => {
             Amrit Rai
           </span>
           , a passionate Full Stack Web Developer skilled in{" "}
-          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_0_6px_#00e0ff]">
+          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_2_3px_#00e0ff]">
             JavaScript
           </span>
           ,{" "}
-          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_0_6px_#00e0ff]">
+          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_2_3px_#00e0ff]">
             React
           </span>
           ,{" "}
-          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_0_6px_#00e0ff]">
+          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_2_3px_#00e0ff]">
             Node.js
           </span>
           , and{" "}
-          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_0_6px_#00e0ff]">
-            MySQL
+          <span className="text-[#00e0ff] font-semibold drop-shadow-[0_2_3px_#00e0ff]">
+            Mongo Db
           </span>
           . I love turning ideas into real-world applications and continuously
           improving my skills. With a{" "}
-          <span className="text-[#ff4fff] font-semibold drop-shadow-[0_0_6px_#ff4fff]">
+          <span className="text-[#ff4fff] font-semibold drop-shadow-[0_2_3px_#ff4fff]">
             problem-solving mindset
           </span>{" "}
           and a drive to learn, I strive to build{" "}
-          <span className="text-[#00ff90] font-semibold drop-shadow-[0_0_6px_#00ff90]">
+          <span className="text-[#00ff90] font-semibold drop-shadow-[0_2_3px_#00ff90]">
             user-friendly
           </span>{" "}
           and{" "}
-          <span className="text-[#00ff90] font-semibold drop-shadow-[0_0_6px_#00ff90]">
+          <span className="text-[#00ff90] font-semibold drop-shadow-[0_2_3px_#00ff90]">
             scalable solutions
           </span>
           .

@@ -57,7 +57,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills-section text-white font-poppins px-16 py-28 overflow-hidden relative">
       <div className="text-center mb-16 relative z-10">
-        <h1 className="inline-block text-5xl font-extrabold border-l-4 border-white pl-4 mb-3 drop-shadow-[0_0_15px_#00e0ff]">
+        <h1 className="inline-block text-5xl font-extrabold border-l-4 border-white pl-4 mb-3 ">
           Technologies I Work With
         </h1>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -69,7 +69,7 @@ const Skills = () => {
         {skills.map((skill, idx) => (
           <div
             key={idx}
-            className="bg-[rgba(20,20,20,0.9)] border border-[rgba(0,224,255,0.2)] rounded-2xl p-4 shadow-[0_0_15px_rgba(0,224,255,0.15)] transition-transform duration-300 will-change-transform hover:-translate-y-2 hover:scale-[1.03] hover:border-[#00e0ff] hover:shadow-[0_0_25px_#00e0ff,0_0_50px_rgba(0,224,255,0.3)]"
+            className="bg-[rgba(20,20,20,0.9)] border border-[rgba(0,224,255,0.2)]  p-4 shadow-[0_0_15px_rgba(0,224,255,0.15)] transition-transform duration-300 will-change-transform hover:-translate-y-2 hover:scale-[1.008] hover:border-[#00e0ff] hover:shadow-[0_0_20px_#00e0ff]"
           >
             <h2 className="text-center text-xl sm:text-2xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-[#ff4fff] to-[#00e0ff] animate-gradientText">
               {skill.category}
@@ -81,7 +81,7 @@ const Skills = () => {
                   className="flex flex-col items-center text-base sm:text-sm text-gray-300 cursor-pointer transition-transform duration-300 will-change-transform hover:scale-110 hover:text-[#00ff90]"
                   title={item.name}
                 >
-                  <div className="text-4xl sm:text-3xl mb-2 transition-all duration-300 hover:text-[#ff4fff] hover:scale-125 animate-floatIcon">
+                  <div className="text-4xl sm:text-3xl mb-2 transition-all duration-300 hover:text-[#ff4fff] hover:scale-[1.008] animate-floatIcon">
                     {item.icon}
                   </div>
                   <span>{item.name}</span>

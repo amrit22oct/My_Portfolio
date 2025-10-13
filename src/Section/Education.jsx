@@ -35,6 +35,18 @@ const educationData = [
   },
 ];
 
+const EducationCard = ({ title, institute, duration, description, score }) => (
+  <div className="bg-[rgba(20,20,20,0.9)] p-6  border border-[rgba(0,224,255,0.2)] shadow-[0_0_12px_rgba(0,224,255,0.15)] transition-transform duration-300 will-change-transform hover:-translate-y-1 hover:scale-[1.008]  hover:shadow-[0_0_15px_#00e0ff]">
+    <h2 className="text-xl font-semibold mb-2 text-[#ff4fff] ">
+      {title}
+    </h2>
+    <p className="text-gray-300">{institute}</p>
+    {duration && <span className="block mt-1 text-[0.95rem] font-semibold text-[#00ff90]">{duration}</span>}
+    {description && <p className="text-gray-300">{description}</p>}
+    <p className="font-semibold text-[#00ff90] drop-shadow-[0_0_6px_#00ff90]">{score}</p>
+  </div>
+);
+
 const Education = () => {
   return (
     <section
@@ -52,32 +64,13 @@ const Education = () => {
 
       {/* Education Cards */}
       <div className="flex-1 z-10 w-full">
-        <h1 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold mb-10 pl-4 border-l-[6px] border-white-400 drop-shadow-[0_0_15px_#00e0ff]">
+        <h1 className="text-3xl sm:text-4xl md:text-[2.5rem] font-bold mb-10 pl-4 border-l-[6px] border-white-400 ">
           My Education
         </h1>
 
         <div className="space-y-8 mt-6">
           {educationData.map((edu, idx) => (
-            <div
-              key={idx}
-              className="bg-[rgba(20,20,20,0.9)] p-6 rounded-2xl border border-[rgba(0,224,255,0.2)] shadow-[0_0_12px_rgba(0,224,255,0.15)] transition-transform duration-300 will-change-transform hover:-translate-y-1 hover:scale-[1.02] hover:border-[#ff4fff] hover:shadow-[0_0_20px_#ff4fff,0_0_40px_#00e0ff]"
-            >
-              <h2 className="text-xl font-semibold mb-2 text-[#ff4fff] drop-shadow-[0_0_8px_#ff4fff]">
-                {edu.title}
-              </h2>
-              <p className="text-gray-300">{edu.institute}</p>
-              {edu.duration && (
-                <span className="block mt-1 text-[0.95rem] font-semibold text-[#00ff90]">
-                  {edu.duration}
-                </span>
-              )}
-              {edu.description && (
-                <p className="text-gray-300">{edu.description}</p>
-              )}
-              <p className="font-semibold text-[#00ff90] drop-shadow-[0_0_6px_#00ff90]">
-                {edu.score}
-              </p>
-            </div>
+            <EducationCard key={idx} {...edu} />
           ))}
         </div>
       </div>

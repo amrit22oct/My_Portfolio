@@ -101,11 +101,11 @@ const Home = () => {
     >
       {/* Intro */}
       <div className="flex-1 max-w-[650px] w-full flex flex-col items-start text-left gap-6">
-        <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] leading-tight drop-shadow-[0_0_6px_#00e0ff,0_0_15px_#00e0ff]">
+        <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] leading-tight ">
           Hello,
           <br />
           This is{" "}
-          <span className="text-[#FF4FFF] drop-shadow-[0_0_1px_#ffffff,0_0_10px]">
+          <span className="text-cyan-300 ">
             Amrit Rai
           </span>
           ,<br />
@@ -114,7 +114,7 @@ const Home = () => {
           <span
             style={{
               color: "#FF4FFF",
-              textShadow: "0 0 1px #ffffff, 0 0 10px ",
+              
               display: "inline-block",
               marginLeft: "2px",
               animation: "steps(1) infinite",
@@ -153,7 +153,7 @@ const Home = () => {
         <div className="flex flex-wrap gap-4 justify-start mt-4">
           <a
             href="#contact"
-            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#00e0ff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#00e0ff,0_0_40px_#00e0ff]"
+            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#00e0ff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.008] hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_10px_#00e0ff,0_0_0_#00e0ff]"
           >
             Contact Me
             <span className="absolute -inset-1 rounded-full bg-[#00e0ff] opacity-20 blur-md animate-pulse"></span>
@@ -162,7 +162,7 @@ const Home = () => {
           <a
             href={ResumePDF}
             download="Amrit_Rai_Resume.pdf"
-            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#ff4fff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_20px_#ff4fff,0_0_40px_#ff4fff]"
+            className="no-underline relative px-6 py-2 rounded-full font-semibold border-2 border-[#ff4fff] bg-[rgba(15,15,15,0.8)] text-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.008] hover:bg-[rgba(20,20,20,0.9)] hover:shadow-[0_0_10px_#ff4fff,0_0_0_#ff4fff]"
           >
             Resume
             <span className="absolute -inset-1 rounded-full bg-[#ff4fff] opacity-20 blur-md animate-pulse"></span>
@@ -172,7 +172,7 @@ const Home = () => {
 
       {/* Code Box */}
       <div
-        className="flex-1 max-w-[600px] w-full bg-[rgba(20,20,20,0.9)] rounded-xl overflow-hidden shadow-lg border border-[rgba(255,255,255,0.08)]"
+        className="flex-1 max-w-[600px] w-full bg-[rgba(20,20,20,0.9)]  overflow-hidden shadow-lg border border-[rgba(255,255,255,0.08)]"
         style={{ animation: "float 6s ease-in-out infinite" }}
       >
         <div className="flex items-center gap-2 px-4 py-2 bg-[rgba(30,30,30,0.9)] border-b border-[rgba(255,255,255,0.1)]">

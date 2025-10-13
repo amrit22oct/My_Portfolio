@@ -1,81 +1,61 @@
-import React, { useState, useEffect } from "react";
-import Particles from "@tsparticles/react";
+import React, { useEffect, useState } from "react";
+
+const NUM_STARS = { far: 100, mid: 70, near: 50 };
+
+const random = (min, max) => Math.random() * (max - min) + min;
+
+const generateStars = (count, depthFactor) =>
+  Array.from({ length: count }, () => ({
+    top: random(0, 100),
+    left: random(0, 100),
+    size: random(0.5, 1.5),
+    opacity: random(0.3, 1),
+    depth: depthFactor,
+  }));
 
 const Background = () => {
-  const [ripples, setRipples] = useState([]);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
+
+  const farStars = generateStars(NUM_STARS.far, 0.02);
+  const midStars = generateStars(NUM_STARS.mid, 0.05);
+  const nearStars = generateStars(NUM_STARS.near, 0.1);
 
   useEffect(() => {
-    const handleClick = (e) => {
-      // Randomize ripple size between 20 and 50px based on click
-      const size = 20 + Math.random() * 30;
+    const handleMouse = (e) => setCursor({ x: e.clientX, y: e.clientY });
+    const handleScroll = () => setScrollY(window.scrollY);
 
-      const newRipple = { id: Date.now(), x: e.clientX, y: e.clientY, size };
-      setRipples((prev) => [...prev, newRipple]);
-      setTimeout(() => {
-        setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
-      }, 1200); // duration same as animation
+    window.addEventListener("mousemove", handleMouse);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("scroll", handleScroll);
     };
-
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
   }, []);
 
+  const parallax = (depth) => ({
+    x: (cursor.x - window.innerWidth / 2) * depth,
+    y: (cursor.y - window.innerHeight / 2 + scrollY) * depth,
+  });
+
   return (
-    <div className="fixed inset-0 w-full h-full bg-black overflow-hidden -z-10">
-      {/* Starry background */}
-      <Particles
-        id="tsparticles"
-        options={{
-          background: { color: "transparent" },
-          fpsLimit: 60,
-          interactivity: {
-            events: { onHover: { enable: false }, onClick: { enable: false } },
-          },
-          particles: {
-            number: { value: 80 },
-            size: { value: 1.5 },
-            move: { enable: true, speed: 0.2 },
-            opacity: { value: 0.7 },
-            color: { value: "#ffffff" },
-          },
-        }}
-      />
-
-      {/* Ripples */}
-      {ripples.map((ripple) => (
-        <span
-          key={ripple.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            left: ripple.x,
-            top: ripple.y,
-            width: ripple.size,
-            height: ripple.size,
-            border: "2px solid #00ffff80",
-            boxShadow: "0 0 8px 2px #00ffff60",
-            transform: "translate(-50%, -50%) scale(0)",
-            animation: "waterRipple 1.2s ease-out forwards",
-          }}
-        />
-      ))}
-
-      {/* Ripple keyframes */}
-      <style>{`
-        @keyframes waterRipple {
-          0% {
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0.8;
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.5);
-            opacity: 0.5;
-          }
-          100% {
-            transform: translate(-50%, -50%) scale(3);
-            opacity: 0;
-          }
-        }
-      `}</style>
+    <div className="fixed inset-0 z-0 overflow-hidden bg-[#05060a]">
+      {[...farStars, ...midStars, ...nearStars].map((star, idx) => {
+        const offset = parallax(star.depth);
+        return (
+          <div
+            key={idx}
+            className="absolute bg-white rounded-full animate-twinkle"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `calc(${star.top}% + ${offset.y}px)`,
+              left: `calc(${star.left}% + ${offset.x}px)`,
+              opacity: star.opacity,
+            }}
+          />
+        );
+      })}
     </div>
   );
 };

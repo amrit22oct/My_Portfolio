@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from "react";
-import Logo from "../assets/Logo1.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,14 +33,18 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center justify-between h-full px-6 md:px-12">
-        {/* Logo */}
-        <a href="#home" onClick={() => setIsOpen(false)}>
-          <img
-            src={Logo}
-            alt="Logo"
-            className="h-14 md:h-16 w-auto object-contain drop-shadow-[0_0_20px_#ff4fff] hover:scale-105 transition-transform duration-300 animate-neonGlow"
-          />
-        </a>
+        {/* Text Logo */}
+        <a
+  href="#home"
+  onClick={() => setIsOpen(false)}
+  className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00ff90] via-[#00e0ff] to-[#ff4fff] hover:scale-105 transition-transform duration-300"
+  style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+>
+  Amrit Rai
+</a>
+
+
+
 
         {/* Desktop Links */}
         <ul className="hidden md:flex list-none gap-10">
@@ -87,25 +90,23 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-     {/* Mobile Menu */}
-<ul
-  className={`fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center gap-8 bg-[rgba(20,24,36,0.97)] backdrop-blur-[18px] transition-transform duration-300 md:hidden z-40 overflow-y-auto ${
-    isOpen ? "translate-x-0" : "-translate-x-full"
-  }`}
->
-  {links.map((link) => (
-    <li key={link.name}>
-      <a
-        href={link.href}
-        onClick={() => setIsOpen(false)}
-        className="text-white text-2xl font-medium transition-all duration-300 hover:text-[#00ff90] hover:scale-110 hover:drop-shadow-[0_0_18px_#00e0ff]"
+      <ul
+        className={`fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center gap-8 bg-[rgba(20,24,36,0.97)] backdrop-blur-[18px] transition-transform duration-300 md:hidden z-40 overflow-y-auto ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        {link.name}
-      </a>
-    </li>
-  ))}
-</ul>
-
+        {links.map((link) => (
+          <li key={link.name}>
+            <a
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="text-white text-2xl font-medium transition-all duration-300 hover:text-[#00ff90] hover:scale-110 hover:drop-shadow-[0_0_18px_#00e0ff]"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
