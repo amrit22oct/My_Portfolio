@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client"; // Note the change here
 import App from "./App";
 import "./index.css";
+import AppNew from "./AppNew";
 
 // Create a root
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -10,5 +11,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
+    {/* <AppNew /> */}
   </React.StrictMode>
 );
