@@ -52,14 +52,17 @@ const CodeBox = () => {
 
   return (
     <div
-      className="flex-1 max-w-[600px] w-full bg-[rgba(20,20,20,0.9)] overflow-hidden shadow-lg border border-[rgba(255,255,255,0.08)]"
+      className="flex-1 max-w-3xl w-full bg-[rgba(20,20,20,0.9)] overflow-hidden shadow-lg border border-[rgba(255,255,255,0.08)]"
       style={{ animation: "float 6s ease-in-out infinite" }}
     >
-      <div className="flex items-center gap-2 px-4 py-2 bg-[rgba(30,30,30,0.9)] border-b border-[rgba(255,255,255,0.1)]">
+   <div className="flex items-center  bg-[rgba(30,30,30,0.9)] border-b border-[rgba(255,255,255,0.1)]">
+   <div className="flex items-center gap-2 px-4 py-2">
         <span className="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
         <span className="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
         <span className="w-3 h-3 rounded-full bg-[#27c93f]"></span>
       </div>
+      <p>Portfolio.js</p>
+   </div>
 
       <pre className="p-4 sm:p-6 text-[#d4d4d4] leading-relaxed whitespace-pre overflow-auto max-h-[500px] text-[clamp(0.78rem,2vw,0.95rem)]">
         {lines.map((ln, i) => (
