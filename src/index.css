@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode in Tailwind v4 */
+@variant dark (&:where(.dark, .dark *));
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for Chrome, Safari, Opera */
+/* Hide scrollbar */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for Firefox, IE, Edge */
 html, body {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Global anchor reset */
 a {
   text-decoration: none !important;
 }
-

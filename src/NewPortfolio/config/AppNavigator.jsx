@@ -1,32 +1,46 @@
 // src/config/AppNavigator.jsx
-
 import { Routes, Route } from "react-router-dom";
+import { Suspense } from "react";
 
-import Navbar from "../components/molecules/Navbar";
-import Background from "../../Components/Background.jsx";
-import CursorTrail from "../../Components/CursorTrail";
-import Footer from "../../Section/Footer";
-import { routes } from "./Routes";
+import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
+import Background from "../components/layout/Background";
+import CursorTrail from "../components/layout/CursorTrail";
+
+import { routes } from "./routes";
+import NotFound from "../components/pages/NotFound";
 
 const AppNavigator = () => {
   return (
-    <div className="app-container relative">
+    <div
+      className="
+        min-h-screen
+        bg-[#f5f7fb] dark:bg-[#0f1220]
+        text-black dark:text-white
+        transition-colors duration-500
+        relative
+      "
+    >
       <Background />
       <CursorTrail />
 
       <div className="relative z-10">
         <Navbar />
 
-        <Routes>
-          {routes.map(({ id, path, component }) => (
-            <Route key={id} path={path} element={component} />
-          ))}
-        </Routes>
+        <Suspense fallback={<div className="p-10">Loading...</div>}>
+          <Routes>
+            {routes.map(({ id, path, component: Component }) => (
+              <Route key={id} path={path} element={<Component />} />
+            ))}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
 
         <Footer />
       </div>
     </div>
   );
 };
+
 
 export default AppNavigator;
