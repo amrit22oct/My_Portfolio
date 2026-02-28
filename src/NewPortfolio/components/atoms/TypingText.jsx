@@ -37,7 +37,8 @@ const TypingText = ({ animatedTexts }) => {
   }, [charIndex, isTyping, textIndex, animatedTexts]);
 
   return (
-    <span className="ml-1 bg-gradient-to-r from-[#00e0ff] to-[#ff4fff] bg-clip-text text-transparent font-semibold">
+    // <span className="ml-1 bg-gradient-to-r from-[#00e0ff] to-[#ff4fff] bg-clip-text text-transparent font-semibold">
+<span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
       {displayText}
       <span className="">|</span>
     </span>

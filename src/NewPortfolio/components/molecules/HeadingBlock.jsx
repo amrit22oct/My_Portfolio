@@ -29,14 +29,16 @@ const HeadingBlock = ({ currentText }) => {
 
       <h1 className="text-[clamp(2.6rem,6vw,4rem)] leading-[1.1] font-bold">
         Hello, I’m{" "}
-        <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
+        {/* <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent"> */}
+        <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
           Amrit Rai
         </span>
       </h1>
 
       <h2 className="mt-6 text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/70 font-medium">
         A Professional{" "}
-        <span className="text-white">
+        {/* <span className="text-white"> */}
+        <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
           <TypingText animatedTexts={currentText} />
         </span>
       </h2>

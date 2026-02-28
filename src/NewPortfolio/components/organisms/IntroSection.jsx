@@ -23,7 +23,7 @@ import ActionButtons from "../molecules/ActionButtons";
 const IntroSection = ({ currentText }) => {
  
   return (
-    <div className="backdrop-blur-xl bg-white/10 dark:bg-white/5 border border-white/10 rounded-3xl p-10 shadow-2xl min-w-3xl ">
+    <div className="  backdrop-blur-lg bg-black border border-white/10 rounded-3xl p-10 shadow-2xl min-w-3xl ">
       <HeadingBlock currentText={currentText} />
       <div className="mt-8">
         <SocialIcons />

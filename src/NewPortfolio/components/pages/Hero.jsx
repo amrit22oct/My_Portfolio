@@ -284,7 +284,6 @@ export default function Hero() {
       </div>
 
       {/* ================= INTRO CARD ================= */}
-      {/* ================= INTRO CARD ================= */}
       <div
         onClick={() => setFocusCode(false)}
         className={`
@@ -296,35 +295,7 @@ export default function Hero() {
     }
   `}
       >
-        {/* <div className="
-      glass-card
-      w-[92vw] max-w-3xl
-      px-16 py-16
-      text-center
-    "
-  >
-    <h1 className="text-[clamp(2.8rem,5vw,4rem)] font-bold leading-tight">
-      Hi, I'm <span className="text-cyan-400">Amrit Rai</span>
-    </h1>
-
-    <p className="mt-8 text-white/70 text-xl leading-relaxed">
-      I design and build immersive, modern and performance-driven web
-      experiences using the MERN stack with strong focus on UI, motion and
-      architecture.
-    </p>
-
-    <div className="mt-10 flex justify-center gap-6 text-sm text-white/40">
-      <span>React</span>
-      <span>Node</span>
-      <span>MongoDB</span>
-      <span>Tailwind</span>
-      <span>UI/UX</span>
-    </div>
-
-    <p className="mt-8 text-white/30 text-xs tracking-wider">
-      Click code • Click intro to swap
-    </p>
-  </div> */}
+       
         <IntroSection currentText={animatedTexts} />
       </div>
 
@@ -416,10 +387,12 @@ function SidePanels() {
 function MiniTerminal() {
   return (
     <div className="absolute top-6 left-1/2 -translate-x-1/3 w-[420px] glass-small p-4 text-green-300 text-xs">
-      $ npm start
+      $ git add .
       <br />
-      $ git push origin main
-      <br />$ portfolio running...
+      $ git commit -m "initialising Portfolio....."
+      <br />
+      $ git push origin master
+      {/* <br />$ portfolio running... */}
     </div>
   );
 }

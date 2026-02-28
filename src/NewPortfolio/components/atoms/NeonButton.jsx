@@ -12,7 +12,7 @@ const NeonButton = ({ href, color, children, download }) => {
     >
       {children}
       <span
-        className="absolute -inset-1 rounded-full opacity-20 blur-md animate-pulse"
+        className="absolute -inset-1 rounded-full opacity-20 blur-md "
         style={{ background: color }}
       />
     </a>

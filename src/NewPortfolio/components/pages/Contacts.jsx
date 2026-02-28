@@ -1,131 +1,184 @@
-import React from "react";
-import {
-  FaEnvelope,
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
+import React, { useState } from "react";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedin, FaInstagram, FaArrowRight } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
-const contactsInfo = [
-  { icon: <FaEnvelope />, label: "Email", value: "amritrai22oct@gmail.com", link: "mailto:amritrai22oct@gmail.com", color: "#00ff90" },
-  { icon: <FaGithub />, label: "GitHub", value: "github.com/amrit22oct", link: "https://github.com/amrit22oct", color: "#ff4fff" },
-  { icon: <FaLinkedin />, label: "LinkedIn", value: "linkedin.com/in/amrit-rai9335014143/", link: "https://www.linkedin.com/in/amrit-rai9335014143/", color: "#00d4ff" },
-];
-
-const socialLinks = [
-  { icon: <FaInstagram />, link: "https://www.instagram.com/_its_amrit._/", color: "#ff007f" },
-  { icon: <FaFacebook />, link: "https://www.facebook.com/profile.php?id=100023164340028", color: "#1877f2" },
-  { icon: <SiLeetcode />, link: "https://leetcode.com/u/amrit22oct/", color: "#f79f1f" },
-];
-
 const Contacts = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("amritrai22oct@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen flex flex-col justify-center items-center px-4 sm:px-8 py-16 text-white overflow-hidden"
+      className="relative w-full min-h-screen  py-24 px-6 flex items-center justify-center overflow-hidden"
     >
-      {/* Section Title */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold italic mb-12 pl-4 border-l-[6px] border-white  text-center sm:text-left">
-        Let's Connect
-      </h1>
+      {/* Improved Background Grid */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(#ffffff10 1px, transparent 1px), linear-gradient(90deg, #ffffff10 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-      {/* Container */}
-      <div className="flex flex-col md:flex-row flex-wrap gap-8 w-full mt-8 max-w-[1200px] justify-center items-stretch">
-        {/* Left: Professional Summary & Info */}
-        <div className="flex-1 w-full max-w-[500px] min-h-[500px] bg-[rgba(20,20,20,0.9)] p-6 border  backdrop-blur-md transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] flex flex-col justify-between">
+      {/* Soft Gradient Glow */}
+      {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-cyan-500/10 blur-[140px] rounded-full"></div> */}
+
+      <div className=" min-w-[850px] w-full grid grid-cols-1 p-40 md:grid-cols-3 gap-6 relative z-10  ">
+
+        {/* HERO CARD */}
+        <div className="md:col-span-2 bg-[#0b0b0b] border border-white/5 rounded-3xl p-10 flex flex-col justify-between hover:border-cyan-500/30 transition-all duration-500 group">
+
           <div>
-            <h2 className="text-pink-500 mb-4  text-lg sm:text-xl italic">
-              Professional Summary
-            </h2>
-            <p className="text-[#d4d4d4] mb-6 leading-relaxed text-sm sm:text-base italic">
-              Full Stack Developer skilled in the MERN stack. I craft modern, interactive, and intuitive applications that solve real-world problems. Passionate about clean code, continuous learning, and building impactful digital solutions.
-            </p>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+              <span className="text-xs font-mono text-white tracking-widest uppercase">
+                System Online
+              </span>
+            </div>
+
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white mb-6"
+          >
+            Let’s Build<br /> <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> Something Powerful</span>
+          </motion.h2>
+
+            {/* <h2 className="text-5xl md:text-6xl font-black text-white leading-tight">
+              Let’s Build <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient-x">
+                Something Powerful
+              </span>
+            </h2> */}
           </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col gap-4 mt-4">
-            {contactsInfo.map((item, idx) => (
-              <div key={idx} className="flex items-center gap-3">
-                {React.cloneElement(item.icon, {
-                  className: `text-2xl drop-shadow-[0_0_5px_${item.color},0_0_4px_${item.color}]`,
-                  style: { color: item.color },
-                })}
-                <div>
-                  <h4 className="font-semibold text-sm sm:text-base">{item.label}</h4>
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:text-cyan-400 transition text-sm sm:text-base break-all"
-                  >
-                    {item.value}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex gap-4 mt-2">
-            {socialLinks.map((item, idx) => (
-              <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer">
-                {React.cloneElement(item.icon, {
-                  className: "text-2xl sm:text-[1.6rem] cursor-pointer transition-transform duration-300 hover:scale-125",
-                  style: { color: item.color, filter: `drop-shadow(0 0 5px ${item.color})` },
-                })}
-              </a>
-            ))}
-          </div>
+          <p className="text-white mt-10 max-w-md text-lg font-light leading-relaxed">
+            Transforming ideas into scalable full-stack experiences. 
+            If you're serious about building something impactful — let's talk.
+          </p>
         </div>
 
-        {/* Right: Contact Form */}
-        <div className="flex-1 w-full max-w-[500px] min-h-[500px] bg-[rgba(20,20,20,0.9)] p-6 border  backdrop-blur-md transition-transform duration-500 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,224,255,0.4)] flex flex-col justify-between mt-8 md:mt-0">
-          <div>
-            <h2 className="text-[#00ff90] mb-4 text-lg sm:text-xl italic">
-              Send Me a Message
-            </h2>
-            <p className="text-[#d4d4d4] italic text-center sm:text-left leading-relaxed mb-4 text-sm sm:text-base">
-              Have questions or work opportunities? Feel free to reach out!
-            </p>
+        {/* SOCIAL CARD */}
+        <div className=" border border-white/5 rounded-3xl p-8 relative overflow-hidden group hover:border-pink-500/30 transition-all duration-500 bg-[#0b0b0b]">
+
+          {/* <h3 className="text-white font-bold text-xl mb-6 italic">
+            Connect
+          </h3> */}
+            <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter text-white mb-6"
+          >
+     Let's<span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> Connect</span>
+          </motion.h2>
+
+          <div className="w-full ">
+           <div className = "w-full p-2 pt-4 h-full flex flex-col gap-3 ">
+           {[
+              { icon: <FaGithub />, name: "GitHub", link: "https://github.com/amrit22oct" },
+              { icon: <FaLinkedin />, name: "LinkedIn", link: "https://linkedin.com/in/amrit-rai9335014143/" },
+              { icon: <SiLeetcode />, name: "LeetCode", link: "https://leetcode.com/u/amrit22oct/" }
+            ].map((soc, i) => (
+              <a
+                key={i}
+                href={soc.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between text-gray-400  hover:text-white transition-all group/link"
+              >
+                <span className="flex items-center gap-3 text-lg text-[#00e0ff] group-hover/link:text-[#00ffd9]  ">
+                  {soc.icon} {soc.name}
+                </span>
+                <FaArrowRight className="text-xs -rotate-45 text-[#00e0ff] group-hover/link:rotate-0 group-hover/link:text-[#00ffd9] transition-transform duration-300"/>
+              </a>
+            ))}
+           </div>
           </div>
 
-          <form
-            action="https://formspree.io/f/mblaqowe"
-            method="POST"
-            className="flex flex-col gap-3"
-          >
-            {[
-              { label: "Name", type: "text", name: "name", placeholder: "Your Name" },
-              { label: "Email", type: "email", name: "email", placeholder: "Your Email" },
-            ].map((field, idx) => (
-              <div key={idx}>
-                <h4 className="text-cyan-400 text-sm font-semibold">{field.label}</h4>
-                <input
-                  type={field.type}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  required
-                  className="bg-[rgba(15,15,15,0.8)] border border-[rgba(255,255,255,0.2)] text-white px-4 py-2 rounded-lg text-sm sm:text-base transition duration-300 focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_8px_#00e0ff,0_0_12px_#00e0ff] w-full"
-                />
-              </div>
-            ))}
-            <div>
-              <h4 className="text-cyan-400 text-sm font-semibold">Message</h4>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                required
-                className="bg-[rgba(15,15,15,0.8)] border border-[rgba(255,255,255,0.2)] text-white px-4 py-2 rounded-lg text-sm sm:text-base transition duration-300 focus:outline-none focus:border-cyan-400 focus:shadow-[0_0_8px_#00e0ff,0_0_12px_#00e0ff] w-full min-h-[150px]"
-              ></textarea>
+          {/* Glow Accent */}
+          {/* <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-pink-500/20 blur-[80px] rounded-full group-hover:bg-pink-500/40 transition-all duration-500"></div> */}
+        </div>
+
+        {/* EMAIL COPY CARD */}
+        <div
+          onClick={handleCopy}
+          className="bg-[#0b0b0b] border border-white/5 rounded-3xl p-8 flex items-center justify-center hover:bg-[#101010] hover:border-cyan-500/30 transition-all cursor-pointer relative"
+        >
+          <div className="text-center">
+            <p className="text-gray-500 text-xs uppercase font-mono tracking-widest mb-2">
+              Tap to Copy Email
+            </p>
+            <span className="text-white font-medium text-lg border-b border-dashed border-gray-700 hover:border-cyan-400 transition-colors">
+              amritrai22oct@gmail.com
+            </span>
+          </div>
+
+          {copied && (
+            <div className="absolute -top-4 bg-cyan-500 text-black text-xs px-3 py-1 rounded-full">
+              Copied ✓
             </div>
+          )}
+        </div>
+
+        {/* TERMINAL FORM */}
+        <div className="md:col-span-2 bg-[#0b0b0b] border border-white/5 rounded-3xl p-10 relative overflow-hidden hover:border-cyan-500/20 transition-all duration-500">
+
+          <div className="flex items-center gap-2 mb-8 border-b border-white/5 pb-4">
+            <div className="flex gap-1.5">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-300"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-300"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-green-300"></div>
+            </div>
+            <span className="text-[15px] font-mono text-white ml-2">
+              MESSAGE_TERMINAL_v2.1
+            </span>
+          </div>
+
+          <form action="https://formspree.io/f/mblaqowe" method="POST" className="space-y-6">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <input
+                type="text"
+                name="name"
+                placeholder="user_name"
+                required
+                className="bg-transparent border-b border-white/50 px-2 py-3 text-white focus:outline-none focus:border-cyan-500 font-mono text-sm placeholder:text-white/50 w-full transition-all"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="user_email"
+                required
+                className="bg-transparent border-b border-white/50 px-2 py-3 text-white focus:outline-none focus:border-cyan-500 font-mono text-sm placeholder:text-white/50 w-full transition-all"
+              />
+            </div>
+
+            <textarea
+              name="message"
+              placeholder="write_message_here..."
+              required
+              rows="4"
+              className="bg-transparent border-b border-white/50 px-2 py-3 text-white focus:outline-none focus:border-pink-500 font-mono text-sm placeholder:text-white/50 w-full transition-all resize-none"
+            ></textarea>
+
             <button
               type="submit"
-              className="bg-gradient-to-r from-cyan-400 to-pink-500 border-none px-4 py-2 rounded-lg text-black font-bold font-mono hover:text-blue-300  text-base cursor-pointer mt-2 transition-transform duration-300  hover:scale-[1.008] "
+              className="flex items-center gap-4 text-white group"
             >
-              Send Message
+              <span className="h-[1px] w-10 bg-white/20 group-hover:w-20 group-hover:bg-cyan-500 transition-all duration-500"></span>
+              <span className="font-mono text-xs tracking-[0.4em] uppercase m-1  group-hover:text-cyan-400 transition-colors">
+                Execute Send
+              </span>
             </button>
+
           </form>
         </div>
       </div>
