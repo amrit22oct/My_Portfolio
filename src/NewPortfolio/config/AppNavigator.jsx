@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
-import { routes } from "./routes";
+import { routes } from "./Routes/index.jsx";
 import NotFound from "../components/pages/NotFound";
 import WindowLayout from "../components/layout/WindowLayout";
 
