@@ -36,7 +36,7 @@ const ProjectDetails = () => {
       {/* Hero Section */}
       <div className="relative h-[70vh] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
         <img
-          src={project.image || "https://via.placeholder.com/1200x600?text=No+Image"}
+          src={ "https://via.placeholder.com/1200x600?text=No+Image" || project.image}
           alt={project.name}
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         />

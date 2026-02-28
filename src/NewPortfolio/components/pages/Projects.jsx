@@ -403,11 +403,11 @@ const ProjectCard = ({ project, index, navigate }) => {
       </div>
       
       {/* Image Container */}
-      <div 
+      {/* <div 
         onClick={() => navigate(`/projects/${project.id}`)}
         className="relative aspect-[16/10] overflow-hidden rounded-xl border border-white/60 cursor-pointer"
       >
-        {/* Project Image */}
+      
         <motion.img
           src={project.image}
           alt={project.name}
@@ -416,22 +416,84 @@ const ProjectCard = ({ project, index, navigate }) => {
           transition={{ duration: 0.6 }}
         />
 
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" /> */}
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-        {/* Hover Glow */}
-        {/* <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-500" /> */}
+        
+        <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition duration-500" />
 
-        {/* Center Button */}
+       
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
           <div className="w-28 h-28 rounded-full bg-white text-black flex flex-col items-center justify-center font-black text-[10px] uppercase leading-none tracking-tighter shadow-2xl">
             <span>View</span>
             <span className="text-lg">↗</span>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      {/* Title & Description */}
+<div
+  onClick={() => navigate(`/projects/${project.id}`)}
+  className="group relative aspect-[16/10] overflow-hidden rounded-2xl 
+  cursor-pointer bg-[#0f172a]/40 border border-white/10 backdrop-blur-sm
+  transition-all duration-500 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.2)]"
+>
+  {/* 1. Animated Mesh Gradient (Background) */}
+  <div className="absolute inset-0 bg-gradient-to-br 
+  from-cyan-500/10 via-transparent to-purple-500/10 
+  opacity-60 group-hover:opacity-100 transition duration-700" />
+
+  {/* 2. Focused Radial Glow */}
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700
+  bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.15)_0%,transparent_70%)]" />
+
+  {/* 3. Main Content Container */}
+  <div className="relative z-10 h-full flex flex-col p-6">
+    
+    {/* Top Label (Small & Elegant) */}
+    <div className="flex justify-between items-center opacity-40 group-hover:opacity-100 transition-opacity">
+       <span className="text-[10px] tracking-[0.3em] text-cyan-400 uppercase font-bold">Project_Log</span>
+       <span className="text-[10px] text-white/40">ID: {project.id}</span>
+    </div>
+
+    {/* CENTERED PROJECT NAME */}
+    <div className="flex-1 flex flex-col items-center justify-center text-center">
+      <h2 className="text-3xl md:text-4xl font-black text-white 
+      tracking-tighter transition-all duration-500 
+      group-hover:scale-110 group-hover:text-cyan-400">
+        {project.name}
+      </h2>
+      {/* Decorative Line under name */}
+      <div className="w-0 group-hover:w-12 h-[2px] bg-cyan-500 transition-all duration-500 mt-2" />
+    </div>
+
+    {/* Bottom Section */}
+    <div className="flex items-center justify-between">
+      <span className="text-[10px] uppercase tracking-widest text-white/30 group-hover:text-white/60 transition-colors">
+        View_Details
+      </span>
+
+      <div className="w-10 h-10 rounded-full border border-white/10 
+      flex items-center justify-center text-white
+      transition-all duration-500 
+      group-hover:border-cyan-500 group-hover:bg-cyan-500 group-hover:text-black group-hover:rotate-45">
+        ↗
+      </div>
+    </div>
+  </div>
+
+  {/* 4. Scanning Line Overlay (Hacker aesthetic) */}
+  <div className="absolute top-0 left-0 w-full h-[1px] bg-cyan-500/20 group-hover:animate-[scan_2s_linear_infinite] pointer-events-none" />
+
+  <style jsx>{`
+    @keyframes scan {
+      0% { top: 0%; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+  `}</style>
+</div>
+
+      
       <div className="mt-8 space-y-4">
         <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-white uppercase group-hover:text-cyan-400 transition-colors">
           
