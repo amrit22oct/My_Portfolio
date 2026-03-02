@@ -4,7 +4,7 @@ const NavControls = ({ theme, toggleTheme, isOpen, setIsOpen }) => {
   return (
     <div className="flex items-center gap-4 rounded-full! ">
       {/* ================= Theme Toggle ================= */}
-      <button
+      {/* <button
         onClick={toggleTheme}
         className="
           relative w-[72px] h-[36px]
@@ -17,18 +17,18 @@ const NavControls = ({ theme, toggleTheme, isOpen, setIsOpen }) => {
           hover:scale-105
         "
       >
-        {/* Background icons */}
+     
         <div className="absolute inset-0 flex items-center justify-between px-3 opacity-50">
           <Sun size={16} className="text-yellow-600" />
           <Moon size={16} className="text-blue-800" />
         </div>
 
-        {/* Sliding knob */}
+ 
         <div
           className={`
             relative z-10
             w-[28px] h-[28px]
-            rounded-full!
+            rounded-full!  
             flex items-center justify-center
           
             bg-gradient-to-br from-[#00ff90] via-[#00e0ff] to-[#ff4fff]
@@ -43,7 +43,7 @@ const NavControls = ({ theme, toggleTheme, isOpen, setIsOpen }) => {
             <Sun size={14} className="text-black" />
           )}
         </div>
-      </button>
+      </button> */}
 
       {/* ================= Hamburger ================= */}
       <div
@@ -51,17 +51,17 @@ const NavControls = ({ theme, toggleTheme, isOpen, setIsOpen }) => {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span
-          className={`w-8 h-[3px] rounded-full bg-black dark:bg-white transition-all duration-300 origin-center ${
+          className={`w-8 h-[3px] rounded-full bg-cyan-400 dark:bg-cyan-400 transition-all duration-300 origin-center ${
             isOpen ? "rotate-45 translate-y-[8px]" : ""
           }`}
         />
         <span
-          className={`w-8 h-[3px] rounded-full bg-black dark:bg-white transition-all duration-300 ${
+          className={`w-8 h-[3px] rounded-full bg-cyan-400 dark:bg-cyan-400 transition-all duration-300 ${
             isOpen ? "opacity-0" : ""
           }`}
         />
         <span
-          className={`w-8 h-[3px] rounded-full bg-black dark:bg-white transition-all duration-300 origin-center ${
+          className={`w-8 h-[3px] rounded-full bg-cyan-400 dark:bg-cyan-400 transition-all duration-300 origin-center ${
             isOpen ? "-rotate-45 -translate-y-[8px]" : ""
           }`}
         />

@@ -92,11 +92,11 @@ const Footer = () => {
             <ChevronUp size={16} className="group-hover/btn:-translate-y-1 transition-transform" />
           </button>
           
-          <div className="flex items-center gap-2 text-white text-[10px] font-medium tracking-widest uppercase">
-             <p>© {currentYear}</p>
-             <span className="opacity-30">|</span>
-             <Globe size={12} className="group-hover:rotate-12 transition-transform duration-500" />
-          </div>
+          <div className="inline-flex items-center justify-center gap-2 text-white text-[10px] sm:text-[11px] font-medium tracking-widest uppercase whitespace-nowrap">
+  <span>© {currentYear}</span>
+  <span className="opacity-30">|</span>
+  <Globe size={12} className="transition-transform duration-500 hover:rotate-12 text-cyan-400" />
+</div>
         </div>
 
         {/* Decorative Background Flare */}

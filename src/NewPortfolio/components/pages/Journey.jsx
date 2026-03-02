@@ -208,18 +208,48 @@ export default function JourneyOS() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Main Glass Header */}
-        <header className="mb-12 backdrop-blur-xl bg-white/5 border border-white/10 p-8 rounded-[2rem] flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none">
-              Engineering <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> Log</span>
-            </h1>
-            <p className="text-white/40 mt-2 font-mono text-sm uppercase tracking-widest">v2.0.25 // status: active</p>
-          </div>
-          <div className="flex gap-4">
-            <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold">2021 — 2025</div>
-            <div className="px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold animate-pulse">AVAILABLE FOR HIRE</div>
-          </div>
-        </header>
+        <header className="
+  mb-12
+  backdrop-blur-xl
+  bg-white/5
+  border border-white/10
+  p-8
+  rounded-[2rem]
+  flex flex-col md:flex-row
+  justify-between
+  items-center
+  gap-6
+  shadow-2xl
+  text-center md:text-left
+">
+
+  <div>
+    <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none">
+      Engineering{" "}
+      <span
+        className="text-transparent"
+        style={{ WebkitTextStroke: "1px #00e0ff" }}
+      >
+        Log
+      </span>
+    </h1>
+
+    <p className="text-white/40 mt-2 font-mono text-sm uppercase tracking-widest">
+      v2.0.25 // status: active
+    </p>
+  </div>
+
+  <div className="flex flex-wrap justify-center md:justify-end gap-4">
+    <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold">
+      2021 — 2025
+    </div>
+
+    <div className="px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold animate-pulse">
+      AVAILABLE FOR HIRE
+    </div>
+  </div>
+
+</header>
 
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows">

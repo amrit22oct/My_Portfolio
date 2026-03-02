@@ -417,7 +417,8 @@ const GithubStats = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* 2. STATS BENTO (Left Column) */}
-        <div className="lg:col-span-4 grid grid-cols-2 gap-4">
+        {/* <div className="lg:col-span-4 grid grid-cols-2 gap-4"> */}
+        <div className="order-3 lg:order-1 lg:col-span-4 grid grid-cols-2 gap-4">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -436,7 +437,8 @@ const GithubStats = () => {
         </div>
 
         {/* 3. REPO ACTIVITY GRID (Center Column) */}
-        <div className="lg:col-span-5 bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
+        {/* <div className="lg:col-span-5 bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl relative overflow-hidden group"> */}
+        <div className="order-2 lg:order-2 lg:col-span-5 bg-[#0a0a0a] border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           </div>
@@ -471,7 +473,8 @@ const GithubStats = () => {
         </div>
 
         {/* 4. VISUAL IDENTITY (Right Column) */}
-        <div className="lg:col-span-3 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-white/5 p-8 rounded-2xl flex flex-col justify-center items-center text-center">
+        {/* <div className="lg:col-span-3 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-white/5 p-8 rounded-2xl flex flex-col justify-center items-center text-center"> */}
+        <div className="order-1 lg:order-3 lg:col-span-3 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-white/5 p-8 rounded-2xl flex flex-col justify-center items-center text-center">
           <div className="relative mb-6">
             <div className="absolute inset-0 bg-cyan-500 blur-2xl opacity-20 animate-pulse" />
             <img

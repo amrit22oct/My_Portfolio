@@ -42,10 +42,29 @@ export default function About() {
   }, []);
 
   return (
+    // <section
+    //   ref={wrapRef}
+    //   className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-6 "
+    // >
     <section
-      ref={wrapRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden text-white px-6 "
-    >
+  ref={wrapRef}
+  className="
+    relative
+    min-h-screen
+    
+    flex flex-col
+    md:flex md:flex-row
+    
+    md:items-center md:justify-center
+    
+    items-center
+    justify-start
+    
+    overflow-hidden
+    text-white
+    px-6
+  "
+>
       {/* Grid background */}
       {/* <div className="absolute inset-0 -z-30 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" /> */}
 
@@ -53,11 +72,35 @@ export default function About() {
       {/* <div className="absolute inset-0 -z-20 blur-[140px] bg-[radial-gradient(circle_at_30%_30%,#00e0ff33,transparent_40%),radial-gradient(circle_at_70%_70%,#ff4fff33,transparent_40%)]" /> */}
 
       {/* Center Identity */}
-      <div
+      {/* <div
         className="parallax absolute top-[30%] right-[30%] fade-in z-10 text-center backdrop-blur-3xl px-16 py-14 rounded-[30px] border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.6)] max-w-4xl"
         data-speed="1.2"
         style={{ transform: "translate(var(--x,0), var(--y,0))" }}
-      >
+      > */}
+      <div
+  className="
+    parallax
+    absolute md:absolute
+    md:top-[30%] md:right-[30%]
+    
+    static
+    top-auto right-auto
+    
+    mx-auto
+    text-center
+    backdrop-blur-3xl
+    px-8 md:px-16
+    py-10 md:py-14
+    rounded-[30px]
+    border border-white/10
+    shadow-[0_30px_100px_rgba(0,0,0,0.6)]
+    max-w-4xl
+    z-10
+    fade-in
+  "
+  data-speed="1.2"
+  style={{ transform: "translate(var(--x,0), var(--y,0))" }}
+>
         <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold">
           I'm{" "}
           {/* <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent"> */}
@@ -117,7 +160,7 @@ export default function About() {
 
       {/* Console */}
       <div
-        className="parallax absolute bottom-[13%] max-h-36 right-[20%] -translate-x-1/2 w-[380px] p-4 font-mono text-[13px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-cyan-300 fade-in"
+        className="parallax absolute bottom-[13%] max-h-36 right-[20%] -translate-x-1/2 w-[380px] p-4 font-mono text-[13px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-cyan-300 fade-in hidden md:block"
         data-speed="1.5"
         style={{ transform: "translate(calc(-50% + var(--x,0)), var(--y,0))" }}
       >
@@ -128,14 +171,36 @@ export default function About() {
 
       {/* Stats */}
       <div
-        className="parallax absolute top-[10%] right-[45%] -translate-x-1/2 flex gap-10 px-8 py-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl fade-in overflow-hidden"
-        data-speed="1"
-        style={{ transform: "translate(calc(-50% + var(--x,0)), var(--y,0))" }}
-      >
-        <Stat label="Projects" value="5+" />
-        <Stat label="Experience" value="9+ months" />
-        <Stat label="Status" value="Active" green />
-      </div>
+  className="
+    parallax
+    
+    absolute md:absolute
+    md:top-[10%] md:right-[45%]
+    md:-translate-x-1/2
+    
+    static
+    top-auto right-auto translate-x-0
+    
+    mt-10
+    mx-auto
+    
+    flex gap-6 md:gap-10
+    px-6 md:px-8
+    py-4
+    rounded-2xl
+    border border-white/10
+    bg-white/5
+    backdrop-blur-xl
+    fade-in
+    overflow-hidden
+  "
+  data-speed="1"
+  style={{ transform: "translate(calc(-50% + var(--x,0)), var(--y,0))" }}
+>
+  <Stat label="Projects" value="5+" />
+  <Stat label="Experience" value="9+ months" />
+  <Stat label="Status" value="Active" green />
+</div>
     </section>
   );
 }
@@ -143,7 +208,7 @@ export default function About() {
 function SkillCard({ text, pos, speed }) {
   return (
     <div
-      className={`parallax absolute ${pos} px-5 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-sm transition hover:scale-110 hover:shadow-[0_10px_30px_rgba(0,224,255,0.4)] fade-in`}
+      className={`parallax absolute ${pos} px-5 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-sm transition hover:scale-110 hover:shadow-[0_10px_30px_rgba(0,224,255,0.4)] fade-in hidden md:block `}
       data-speed={speed}
       style={{ transform: "translate(var(--x,0), var(--y,0))" }}
     >

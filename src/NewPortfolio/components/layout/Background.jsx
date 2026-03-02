@@ -324,17 +324,40 @@ const Background = () => {
       />
 
       {/* TOP BAR (Added Scanning Line) */}
-      <div className="absolute top-0 w-full h-12 bg-black/80 backdrop-blur-xl border-b border-cyan-500/30 flex items-center justify-between px-10 z-50">
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 bg-cyan-500 rounded-full animate-ping" />
-          <span className="text-xs font-black tracking-[0.4em] text-cyan-400">AMRIT_SHELL_v5</span>
-        </div>
-        <div className="flex gap-6 text-[10px] text-cyan-700 font-bold">
-          <span>{time}</span>
-          <span className="hidden md:inline">LATENCY: 12ms</span>
-          <span className="text-white/40">ID: 882-AF0</span>
-        </div>
-      </div>
+      <div className="
+  absolute top-0 w-full
+  min-h-[48px] md:h-12
+  bg-black/80 backdrop-blur-xl
+  border-b border-cyan-500/30
+  flex flex-col md:flex-row
+  md:items-center
+  justify-center md:justify-between
+  px-4 md:px-10
+  py-2 md:py-0
+  z-50
+">
+
+  {/* LEFT SIDE */}
+  <div className="flex items-center gap-3">
+    <div className="w-2 h-2 bg-cyan-500 rounded-full animate-ping" />
+    <span className="text-[10px] md:text-xs font-black tracking-[0.3em] md:tracking-[0.4em] text-cyan-400 whitespace-nowrap">
+      AMRIT_SHELL_v5
+    </span>
+  </div>
+
+  {/* RIGHT SIDE */}
+  <div className="
+    flex items-center
+    gap-3 md:gap-6
+    text-[9px] md:text-[10px]
+    text-cyan-700 font-bold
+    mt-1 md:mt-0
+  ">
+    <span className="text-cyan-400 px-4">{time}</span>
+    <span className="hidden md:inline text-cyan-400">LATENCY: 12ms</span>
+  </div>
+
+</div>
 
       {/* WINDOWS (Added Smooth Parallax) */}
       {windows.map((win) => (
