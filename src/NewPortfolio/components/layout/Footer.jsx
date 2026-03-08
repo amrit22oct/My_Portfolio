@@ -48,9 +48,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full px-4 py-4  ">
+    <footer className="w-full  py-4  ">
       {/* Single Bento Box Container */}
-      <div className="w-full p-6 bg-[#050505] border border-white/5 rounded-[2rem] flex flex-col md:flex-row justify-between items-center gap-6  transition-all duration-500 group relative overflow-hidden">
+      <div className="w-full p-6 bg-[#050505] border-top border-white/5 flex flex-col md:flex-row justify-between items-center gap-6  transition-all duration-500 group relative overflow-hidden">
         
         {/* Left Section: Identity */}
         <div className="flex flex-col items-center md:items-start">
