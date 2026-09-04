@@ -34,6 +34,41 @@ export const projects = [
     github: "https://github.com/amrit22oct/Web_career_portal.git",
     live: "https://web-career-portal-5.onrender.com",
   },
+  {
+    id: "Bug-Tracker-System",
+    name: "Bug-Tracker-System",
+    category: "Full Stack",
+    year: "2024",
+    status: "Completed",
+
+    image: "/public/images/web-career-portal.jpg",
+
+    description:
+      "A modern job portal connecting students and recruiters built using MERN stack and Tailwind CSS.",
+
+    details:
+      "The Web Career Portal is a full-stack application designed to bridge the gap between recruiters and students. It provides role-based authentication, job posting management, application tracking, and a clean dashboard interface for both recruiters and candidates.",
+
+    features: [
+      "Role-based authentication (Student / Recruiter)",
+      "Secure login & registration system",
+      "Job posting & management dashboard",
+      "Application tracking system",
+      "Responsive modern UI",
+    ],
+
+    techStack: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "JWT Authentication",
+    ],
+
+    github: "https://github.com/amrit22oct/Web_career_portal.git",
+    live: "https://web-career-portal-5.onrender.com",
+  },
 
   {
     id: "blog-website",

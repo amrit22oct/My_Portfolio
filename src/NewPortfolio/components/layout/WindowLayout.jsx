@@ -16,7 +16,7 @@ const WindowLayout = ({ children }) => {
     >
       {/* Visual layers */}
       <Background />
-      <CursorTrail />
+      {/* <CursorTrail /> */}
 
       {/* Main Content Layer */}
       <div className="relative z-10 flex flex-col min-h-screen">

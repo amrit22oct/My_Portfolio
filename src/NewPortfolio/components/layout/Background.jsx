@@ -115,8 +115,8 @@ const Background = () => {
       {/* TOP BAR (Added Scanning Line) */}
       <div className="
   absolute top-0 w-full
-  min-h-[48px] md:h-12
-  bg-black/80 backdrop-blur-xl
+  min-h-[64px] md:h-12
+  bg-black/20 backdrop-blur-xl
   border-b border-cyan-500/30
   flex flex-col md:flex-row
   md:items-center

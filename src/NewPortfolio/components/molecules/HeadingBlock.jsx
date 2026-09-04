@@ -1,93 +1,125 @@
-// // // components/molecules/HeadingBlock.jsx
-// // import TypingText from "../atoms/TypingText";
-
-// // const HeadingBlock = ({ currentText }) => {
-// //   return (
-// //     <h1 className="text-[clamp(1.8rem,4vw,2.8rem)] leading-tight">
-// //       Hello,
-// //       <br />
-// //       This is <span className="text-cyan-300">Amrit Rai</span>,
-// //       <br />
-// //       I'm a Professional
-// //       <br />
-// //       <TypingText text={currentText} />
-// //     </h1>
-// //   );
-// // };
-
-// // export default HeadingBlock;
-
-
-// import TypingText from "../atoms/TypingText";
-
-// const HeadingBlock = ({ currentText }) => {
-//   return (
-//     <div className="max-w-5xl">
-//       <p className="text-sm uppercase tracking-[6px] text-white/40 mb-6">
-//         Portfolio
-//       </p>
-
-//       <h1 className="text-[clamp(2.6rem,6vw,4rem)] leading-[1.1] font-bold">
-//         Hello, I’m{" "}
-//         {/* <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent"> */}
-//         <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
-//           Amrit Rai
-//         </span>
-//       </h1>
-
-//       <h2 className="mt-6 text-[clamp(1.2rem,2.5vw,1.8rem)] text-white/70 font-medium">
-//         A Professional{" "}
-//         {/* <span className="text-white"> */}
-//         <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
-//           <TypingText animatedTexts={currentText} />
-//         </span>
-//       </h2>
-
-//       <p className="mt-8 text-white/50 text-lg leading-relaxed max-w-xl">
-//         I build modern, interactive and performance-focused web applications
-//         with clean architecture and thoughtful design.
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default HeadingBlock;
-
 
 
 import TypingText from "../atoms/TypingText";
 
 const HeadingBlock = ({ currentText }) => {
   return (
-    <div className="max-w-5xl">
-      <p className="text-xs sm:text-sm uppercase tracking-[4px] sm:tracking-[6px] text-white/40 mb-4 sm:mb-6">
-        Portfolio
-      </p>
+    <div className="max-w-3xl">
+      {/* Label */}
+      <div className="mb-3 flex items-center gap-3">
+        <span className="h-px w-8 bg-cyan-400" />
 
-      <h1 className="text-[clamp(2rem,6vw,4rem)] leading-[1.1] font-bold">
+        <p
+          className="
+            text-[11px] sm:text-2xl
+            uppercase 
+            tracking-[0.35em]
+           
+            bg-gradient-to-r
+            from-cyan-300
+            via-cyan-400
+            to-white
+            bg-clip-text
+            text-transparent
+            drop-shadow-[0_0_12px_rgba(0,224,255,0.25)]
+            font-extrabold
+          "
+        >
+          Portfolio
+        </p>
+      </div>
+
+      {/* Main heading */}
+      <h1
+        className="
+          text-[clamp(2.5rem,7vw,5rem)]
+          leading-[0.98]
+          tracking-[-0.04em]
+          font-bold
+          text-white
+        "
+      >
         Hello, I’m{" "}
         <span
-          className="text-transparent"
-          style={{ WebkitTextStroke: "1px #00e0ff" }}
+          className="
+            relative
+            inline-block
+            text-transparent
+            font-extrabold 
+            bg-clip-text
+            bg-gradient-to-r
+            from-cyan-300
+            via-cyan-400
+            to-white
+          "
         >
           Amrit Rai
         </span>
+        <span className="text-cyan-400">.</span>
       </h1>
 
-      <h2 className="mt-4 sm:mt-6 text-[clamp(1rem,3vw,1.8rem)] text-white/70 font-medium">
-        A Professional{" "}
-        <span
-          className="text-transparent"
-          style={{ WebkitTextStroke: "1px #00e0ff" }}
+      {/* Role */}
+      <div className="mt-2 sm:mt-7">
+        <h2
+          className="
+            flex flex-wrap
+            items-center
+            gap-x-2
+            gap-y-1
+            text-[clamp(1.1rem,3vw,1.75rem)]
+            leading-relaxed
+            font-medium
+            text-white/60
+          "
         >
-          <TypingText animatedTexts={currentText} />
-        </span>
-      </h2>
+          <span>A Professional</span>
 
-      <p className="mt-6 sm:mt-8 text-white/50 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl">
-        I build modern, interactive and performance-focused web applications
-        with clean architecture and thoughtful design.
+          <span
+            className="
+              font-semibold
+              text-transparent
+              bg-clip-text
+              bg-gradient-to-r
+              from-cyan-300
+              to-fuchsia-400
+            "
+          >
+            <TypingText animatedTexts={currentText} />
+          </span>
+        </h2>
+      </div>
+
+      {/* Description */}
+      <p
+        className="
+          mt-6 sm:mt-7
+          max-w-2xl
+          text-md sm:text-base lg:text-lg
+          leading-7 sm:leading-8
+        font-extrabold
+          bg-gradient-to-r
+          from-cyan-300
+          via-cyan-100
+          to-white
+          bg-clip-text
+          text-transparent
+
+          drop-shadow-[0_0_12px_rgba(0,224,255,0.25)]
+        "
+      >
+      I’m a Full Stack Developer who builds modern, interactive, and scalable web applications with clean architecture, efficient code, and thoughtful design.
+
       </p>
+
+      {/* Availability */}
+      {/* <div className="mt-6 flex items-center gap-2 text-xs sm:text-sm text-white/40">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+        </span>
+
+        <span>Available for opportunities</span>
+      </div> */}
     </div>
   );
 };

@@ -13,6 +13,14 @@ import { FaServer, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
+    name: "Bug Tracker System",
+    description:
+      "The system to manage the bug and the project ",
+    tools: [SiReact, SiNodedotjs, SiExpress, SiMongodb, SiTailwindcss],
+    github: "https://github.com/amrit22oct/Web_career_portal.git",
+    live: "https://web-career-portal-5.onrender.com",
+  },
+  {
     name: "Web Career Portal",
     description:
       "A modern job portal connecting students and recruiters, built with MERN stack and Tailwind CSS.",
