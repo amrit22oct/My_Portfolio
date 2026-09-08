@@ -322,13 +322,13 @@ export default function About() {
           MAIN CONTAINER
       ====================================================== */}
 
-      <div className="relative mx-auto px-20">
+      <div className="relative mx-auto md-px-4">
 
         {/* section indicator */}
         <div className="mb-16 flex items-center gap-4">
          
 
-          <span className="h-px w-12 bg-white/90" />
+          <span className="h-px w-12 bg-white" />
 
           <span
             className="
@@ -336,10 +336,11 @@ export default function About() {
               uppercase
               tracking-[0.35em]
               font-extrabold
+            
               bg-gradient-to-r
-              from-cyan-300
-              via-cyan-400
-              to-white
+              from-white
+              via-cyan-100
+              to-cyan-400
               bg-clip-text
               text-transparent
               drop-shadow-[0_0_12px_rgba(0,224,255,0.25)]

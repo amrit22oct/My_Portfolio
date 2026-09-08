@@ -1,382 +1,1012 @@
-// import React, { useState } from "react";
+import React, { useRef } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
-// const achievements = [
-//   { year: "2022", title: "TalentPool@IET", description: "Gained exposure to projects and enhanced technical skills." },
-//   { year: "2023", title: "TalentHunt@IET", description: "Participated in coding competitions and workshops." },
-//   { year: "2024", title: "Full Stack Dev Internship – Edureka", description: "Learned MERN stack and built real-time applications." },
-//   { year: "2024", title: "JavaScript – HackerRank", description: "Mastered ES6+, DOM, async programming." },
-//   { year: "2025", title: "Node.js – HackerRank", description: "Built backend APIs with Express & MongoDB." },
-//   { year: "2025", title: "Web Dev Certification – Internshala", description: "Scored 84%. Learned responsive design & core web." },
-// ];
-
-// export default function Journey() {
-//   const [active, setActive] = useState(null);
-
-//   return (
-//     <section
-//       onClick={() => setActive(null)}
-//       className="relative min-h-screen flex items-center justify-center text-white overflow-hidden px-6"
-//     >
-//       {/* Background */}
-//       <div className="absolute inset-0 " />
-//       {/* <div className="absolute inset-0 blur-[120px] bg-[radial-gradient(circle_at_20%_30%,#00e0ff55,transparent_40%),radial-gradient(circle_at_80%_70%,#ff4fff55,transparent_40%)]" /> */}
-
-//       {/* Center Title Core */}
-//       <div className="relative z-10 text-center backdrop-blur-3xl bg-white/5 border border-white/10 rounded-[40px] px-16 py-20 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
-//          <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold">
-//            My{" "}
-//            {/* <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent"> */}
-//            <span className="text-transparent" style={{ WebkitTextStroke: "1px #00e0ff" }}> 
-//              Engineering Journey
-//            </span>
-//          </h1>
-//          <p className="text-white/50 mt-6 max-w-xl mx-auto">
-//            A progression of learning, building, breaking things, and leveling up as a developer.
-//          </p>
-//        </div>
-
-//       {/* Floating Cards */}
-//       {achievements.map((item, i) => (
-//         <FloatingCard
-//           key={i}
-//           item={item}
-//           index={i}
-//           active={active}
-//           setActive={setActive}
-//         />
-//       ))}
-//     </section>
-//   );
-// }
-
-// /* ================= Floating Card ================= */
-
-// function FloatingCard({ item, index }) {
-//   const [open, setOpen] = useState(false);
-
-//   const positions = [
-//     "top-[12%] left-[22%]",
-//     "top-[3%] right-[26%]",
-//     "bottom-[18%] left-[13%]",
-//     "bottom-[17%] right-[18%]",
-//     "top-[22%] left-[6%]",
-//     "top-[19%] right-[7%]",
-//   ];
-
-//   return (
-//     <>
-//       {/* ORIGINAL CARD (never moves) */}
-//       <div
-//         onClick={() => setOpen(true)}
-//         className={`
-//           absolute ${positions[index]}
-//           w-[280px] cursor-pointer
-//           backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6
-//           shadow-[0_20px_60px_rgba(0,224,255,0.25)]
-//           hover:scale-105 hover:-translate-y-2
-//           transition-all duration-500 z-10
-//         `}
-//       >
-//         <div className="text-sm text-cyan-400 font-bold tracking-widest">
-//           {item.year}
-//         </div>
-
-//         <h3 className="text-lg font-semibold mt-3">
-//           {item.title}
-//         </h3>
-
-//         <p className="text-white/60 text-sm mt-3 leading-relaxed line-clamp-3">
-//           {item.description}
-//         </p>
-//       </div>
-
-//       {/* CENTER OPEN CARD (duplicate) */}
-//       {open && (
-//         <div
-//           onClick={() => setOpen(false)}
-//           className="
-//             fixed inset-0 flex items-center justify-center z-[100]
-//             bg-black/40 backdrop-blur-md
-//           "
-//         >
-//           <div
-//             className="
-//               min-w-3xl
-//               backdrop-blur-2xl bg-[#0d1117]/90 border border-white/10
-//               rounded-3xl p-10 shadow-[0_30px_100px_rgba(0,224,255,0.35)]
-//               animate-[popup_.5s_ease]
-//               text-center
-//             "
-//           >
-//             <div className="text-cyan-400 font-bold tracking-widest text-sm">
-//               {item.year}
-//             </div>
-
-//             <h3 className="text-2xl font-semibold mt-4">
-//               {item.title}
-//             </h3>
-
-//             <p className="text-white/70 mt-6 leading-relaxed">
-//               {item.description}
-//             </p>
-
-//             <p className="text-white/30 text-xs mt-8">
-//               (click anywhere to close)
-//             </p>
-//           </div>
-//         </div>
-//       )}
-
-//       <style>{`
-//         @keyframes popup {
-//           from { transform: scale(.7); opacity:0 }
-//           to { transform: scale(1); opacity:1 }
-//         }
-//       `}</style>
-//     </>
-//   );
-// }
-
-
-
-
-
-
-import React from "react";
-
-const achievements = [
-  { 
-    year: "2024", 
-    title: "Full Stack Internship", 
-    description: "Architected MERN applications at Edureka. Focused on scalability and real-time data flow.", 
-    category: "Professional", 
-    color: "from-blue-500 to-cyan-400",
-    size: "md:col-span-2 md:row-span-1" 
+const journey = [
+  {
+    year: "2021",
+    label: "THE BEGINNING",
+    title: "Started Computer Science",
+    description:
+      "Began my B.E. in Computer Science & Engineering at IET, building the fundamentals of programming, problem solving and software engineering.",
+    tech: ["CSE", "Programming", "Problem Solving"],
+    type: "foundation",
   },
-  { 
-    year: "2025", 
-    title: "Node.js Expert", 
-    description: "HackerRank Gold. Express, MongoDB, & Security.", 
-    category: "Backend", 
-    color: "from-green-500 to-emerald-400",
-    size: "md:col-span-1 md:row-span-1" 
+  {
+    year: "2022",
+    label: "FIRST BREAKTHROUGH",
+    title: "TalentPool @ IET",
+    description:
+      "Started exploring development beyond academics, strengthening technical thinking through projects, challenges and hands-on learning.",
+    tech: ["Logic Building", "Projects", "Learning"],
+    type: "growth",
   },
- 
-  { 
-    year: "2024", 
-    title: "JS Specialist", 
-    description: "Mastered ES6+, Async/Await, and DOM manipulation logic.", 
-    category: "Language", 
-    color: "from-yellow-400 to-orange-500",
-    size: "md:col-span-1 md:row-span-1" 
+  {
+    year: "2023",
+    label: "LEVEL UP",
+    title: "TalentHunt @ IET",
+    description:
+      "Participated in coding activities and technical workshops while developing a stronger foundation in algorithms and software development.",
+    tech: ["DSA", "Coding", "Algorithms"],
+    type: "growth",
   },
-  { 
-    year: "2022", 
-    title: "TalentPool @IET", 
-    description: "Initial technical immersion and logic building foundations.", 
-    category: "Origins", 
-    color: "from-purple-500 to-indigo-500",
-    size: "md:col-span-1 md:row-span-1" 
+  {
+    year: "2024",
+    label: "FULL STACK",
+    title: "Going Deep Into Web Development",
+    description:
+      "Focused heavily on modern web development, building applications with JavaScript, React, Node.js, Express and MongoDB.",
+    tech: ["JavaScript", "React", "Node.js", "MongoDB"],
+    type: "development",
   },
-  { 
-    year: "2023", 
-    title: "TalentHunt", 
-    description: "Competitive coding and algorithmic workshops.", 
-    category: "Logic", 
-    color: "from-pink-500 to-rose-400",
-    size: "md:col-span-1 md:row-span-1" 
+  {
+    year: "2025",
+    label: "PROFESSIONAL",
+    title: "Full Stack Developer Intern",
+    description:
+      "Joined Tycho Technology Pvt. Ltd. as a Full Stack Developer Intern and worked on real-world applications, APIs, authentication, databases and scalable application architecture.",
+    tech: ["MERN", "REST APIs", "JWT", "MongoDB"],
+    type: "professional",
   },
-  { 
-    year: "2025", 
-    title: "Web Dev Cert", 
-    description: "84% Score. Responsive UI & Core Web Vitals.", 
-    category: "Frontend", 
-    color: "from-orange-400 to-yellow-400",
-    size: "md:col-span-2 md:row-span-1" 
+  {
+    year: "2026",
+    label: "EXPANDING THE STACK",
+    title: "MERN + Spring Boot",
+    description:
+      "Expanded beyond the JavaScript ecosystem into Java and Spring Boot, working with Spring Security, SQL and real-time communication to build more robust backend systems.",
+    tech: ["Java", "Spring Boot", "Spring Security", "MySQL"],
+    type: "current",
   },
- 
 ];
 
-export default function JourneyOS() {
+const typeStyles = {
+  foundation: {
+    accent: "from-white to-white",
+    dot: "bg-white",
+  },
+  growth: {
+    accent: "from-purple-400 to-indigo-500",
+    dot: "bg-purple-400",
+  },
+  development: {
+    accent: "from-yellow-300 to-orange-500",
+    dot: "bg-yellow-300",
+  },
+  professional: {
+    accent: "from-cyan-400 to-blue-500",
+    dot: "bg-cyan-400",
+  },
+  current: {
+    accent: "from-cyan-400 to-fuchsia-500",
+    dot: "bg-cyan-400",
+  },
+};
+
+function TechPill({ children }) {
   return (
-    <section className="min-h-screen  text-white p-6 md:p-12 font-sans ">
-      {/* Background Ambient Glows */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[10%] left-[-5%] w-80 h-80 bg-purple-500/10 blur-[120px] rounded-full" />
+    <span
+      className="
+        rounded-full
+        border border-white/[0.08]
+        bg-white/[0.035]
+        px-3 py-1.5
+        text-[10px]
+        font-medium
+        tracking-wide
+        text-white/70
+        transition-all
+        duration-300
+        hover:border-cyan-400/30
+        hover:bg-cyan-400/[0.08]
+        hover:text-cyan-300
+        group-hover:border-white/[0.14]
+        group-hover:text-white/75
+      "
+    >
+      {children}
+    </span>
+  );
+}
+
+function JourneyCard({ item, index }) {
+  const style = typeStyles[item.type];
+  const isCurrent = item.type === "current";
+
+  const isLeft = index % 2 === 0;
+
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 35,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="
+        relative
+        grid
+        grid-cols-[28px_1fr]
+        gap-5
+
+        md:grid-cols-[1fr_80px_1fr]
+        md:gap-0
+      "
+    >
+      {/* =====================================================
+          YEAR
+      ====================================================== */}
+
+      <div
+        className={`
+          hidden
+          md:block
+          md:row-start-1
+          md:self-center
+
+          ${isLeft ? "md:col-start-3 md:text-left md:pl-8" : ""}
+          ${!isLeft ? "md:col-start-1 md:text-right md:pr-8" : ""}
+        `}
+      >
+        {/* Large faded year */}
+
+        <div
+          className={`
+            select-none
+            bg-gradient-to-br
+            ${style.accent}
+            bg-clip-text
+            text-[clamp(4rem,7vw,6.5rem)]
+            font-black
+            leading-none
+            tracking-[-0.08em]
+            text-transparent
+            opacity-[0.13]
+            transition-all
+            duration-500
+            group-hover:opacity-30
+
+            ${isLeft ? "md:text-left" : "md:text-right"}
+          `}
+        >
+          {item.year}
+        </div>
+
+        {/* Small year */}
+
+        {/* <div
+          className={`
+            -mt-12
+            relative
+            z-10
+
+            font-mono
+            text-xs
+            font-bold
+            tracking-[0.35em]
+            text-white/35
+
+            ${isLeft ? "text-left" : "text-right"}
+          `}
+        >
+          {item.year}
+        </div> */}
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        {/* Main Glass Header */}
-        <header className="
-  mb-12
-  backdrop-blur-xl
-  bg-white/5
-  border border-white/10
-  p-8
-  rounded-[2rem]
-  flex flex-col md:flex-row
-  justify-between
-  items-center
-  gap-6
-  shadow-2xl
-  text-center md:text-left
-">
+      {/* =====================================================
+          TIMELINE NODE
+      ====================================================== */}
 
-  <div>
-    <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-none">
-      Engineering{" "}
-      <span
-        className="text-transparent"
-        style={{ WebkitTextStroke: "1px #00e0ff" }}
+      <div
+        className="
+          relative
+          z-20
+          col-start-1
+          row-start-1
+
+          flex
+          justify-center
+
+          md:col-start-2
+          md:row-start-1
+          md:items-center
+        "
       >
-        Log
-      </span>
-    </h1>
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="
+            relative
+            mt-8
+            flex
+            h-10
+            w-10
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-white/10
+            bg-[#07090c]
+            shadow-[0_0_30px_rgba(0,224,255,0.08)]
+            cursor-pointer
 
-    <p className="text-white/40 mt-2 font-mono text-sm uppercase tracking-widest">
-      v2.0.25 // status: active
-    </p>
-  </div>
+            md:mt-0
+          "
+        >
+          <div
+            className={`
+              h-2.5
+              w-2.5
+              rounded-full
+              ${style.dot}
+              ${isCurrent ? "animate-pulse" : ""}
+            `}
+          />
 
-  <div className="flex flex-wrap justify-center md:justify-end gap-4">
-    <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold">
-      2021 — 2025
-    </div>
-
-    <div className="px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-bold animate-pulse">
-      AVAILABLE FOR HIRE
-    </div>
-  </div>
-
-</header>
-
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows">
-          {achievements.map((item, i) => (
+          {isCurrent && (
             <div
-              key={i}
-              className={`
-                ${item.size} group relative rounded-[2rem] p-8 overflow-hidden  justify-start
-                bg-[#111] border border-white/5 hover:border-white/20 
-                transition-all duration-500 shadow-xl flex flex-col justify-between
-              `}
-            >
-              {/* Dynamic Gradient Corner Glow */}
-              <div className={`absolute -right-10 -top-10 w-32 h-32 bg-gradient-to-br ${item.color} opacity-10 blur-3xl group-hover:opacity-40 transition-opacity duration-700`} />
+              className="
+                absolute
+                inset-0
+                animate-ping
+                rounded-full
+                border
+                border-cyan-400/30
+              "
+            />
+          )}
+        </motion.div>
+      </div>
 
-              <div className="relative z-10 flex flex-col justify-start">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${item.color}`} />
-                  <span className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-tighter">
-                    {item.category}
-                  </span>
+      {/* =====================================================
+          MOBILE YEAR
+      ====================================================== */}
+
+      <div
+        className="
+          absolute
+          left-[53px]
+          top-[-25px]
+          z-10
+
+          md:hidden
+        "
+      >
+        <span
+          className={`
+            font-mono
+            text-[10px]
+            font-bold
+            tracking-[0.3em]
+            ${style.dot.replace("bg-", "text-")}
+          `}
+        >
+          {item.year}
+        </span>
+      </div>
+
+      {/* =====================================================
+          CONTENT CARD
+      ====================================================== */}
+
+      <div
+        className={`
+          group
+          relative
+          col-start-2
+          row-start-1
+
+          mb-14
+          overflow-hidden
+          rounded-[28px]
+          border
+          border-white/[0.07]
+          bg-white/[0.025]
+          p-7
+          backdrop-blur-xl
+
+          transition-all
+          duration-500
+
+          hover:-translate-y-1.5
+          hover:scale-[1.01]
+          hover:border-white/[0.18]
+          hover:bg-white/[0.04]
+          hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]
+
+          md:mb-20
+          md:p-8
+
+          ${
+            isLeft
+              ? "md:col-start-1 md:row-start-1 md:mr-8"
+              : "md:col-start-3 md:row-start-1 md:ml-8"
+          }
+        `}
+      >
+        {/* ===================================================
+            GLOW
+        ==================================================== */}
+
+        <div
+          className={`
+            pointer-events-none
+            absolute
+            -right-24
+            -top-24
+            h-48
+            w-48
+            rounded-full
+            bg-gradient-to-br
+            ${style.accent}
+            opacity-[0.07]
+            blur-3xl
+
+            transition-all
+            duration-700
+
+            group-hover:scale-150
+            group-hover:opacity-[0.22]
+          `}
+        />
+
+        {/* secondary glow */}
+
+        <div
+          className={`
+            pointer-events-none
+            absolute
+            -bottom-24
+            -left-24
+            h-40
+            w-40
+            rounded-full
+            bg-gradient-to-br
+            ${style.accent}
+            opacity-[0.025]
+            blur-3xl
+
+            transition-all
+            duration-700
+
+            group-hover:opacity-[0.12]
+          `}
+        />
+
+        {/* ===================================================
+            TOP
+        ==================================================== */}
+
+        <div
+          className="
+            relative
+            mb-6
+            flex
+            items-center
+            justify-between
+            gap-4
+          "
+        >
+          <div className="flex items-center gap-2">
+            <span
+              className={`
+                h-1.5
+                w-1.5
+                rounded-full
+                ${style.dot}
+              `}
+            />
+
+            <span
+              className="
+                
+                text-xs
+                font-extrabold
+                tracking-[0.25em]
+                !bg-gradient-to-r
+                from-white
+                via-cyan-100
+                to-cyan-400
+                !bg-clip-text
+                !text-transparent
+                transition-colors
+                duration-300
+                group-hover:text-white/60
+              "
+            >
+              {item.label}
+            </span>
+          </div>
+
+          {isCurrent && (
+            <span
+              className="
+                rounded-full
+                border
+                border-cyan-400/20
+                bg-cyan-400/[0.06]
+                px-3
+                py-1
+                font-mono
+                text-[8px]
+                font-bold
+                tracking-[0.2em]
+                text-cyan-400
+                shadow-[0_0_12px_rgba(34,211,238,0.2)]
+              "
+            >
+              CURRENT
+            </span>
+          )}
+        </div>
+
+        {/* ===================================================
+            TITLE
+        ==================================================== */}
+
+        <h3
+          className="
+            relative
+            max-w-lg
+            text-2xl
+            font-bold
+            leading-tight
+            tracking-[-0.03em]
+            !bg-gradient-to-r
+            from-white
+            via-cyan-200
+            to-cyan-400
+            bg-clip-text
+            !text-transparent
+
+            transition-colors
+            duration-300
+
+           
+
+            md:text-[28px]
+          "
+        >
+          {item.title}
+        </h3>
+
+        {/* ===================================================
+            DESCRIPTION
+        ==================================================== */}
+
+        <p
+          className="
+            relative
+            mt-4
+            max-w-xl
+            text-sm
+            leading-7
+            text-white/70
+
+            transition-colors
+            duration-300
+
+            group-hover:text-white/85
+          "
+        >
+          {item.description}
+        </p>
+
+        {/* ===================================================
+            TECH
+        ==================================================== */}
+
+        <div
+          className="
+            relative
+            mt-7
+            flex
+            flex-wrap
+            gap-2
+          "
+        >
+          {item.tech.map((tech) => (
+            <TechPill key={tech}>{tech}</TechPill>
+          ))}
+        </div>
+
+        {/* ===================================================
+            BOTTOM ACCENT
+        ==================================================== */}
+
+        <div
+          className={`
+            absolute
+            bottom-0
+            left-0
+            h-[2px]
+            w-0
+            bg-gradient-to-r
+            ${style.accent}
+
+            transition-all
+            duration-700
+
+            group-hover:w-full
+          `}
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Journey() {
+  const containerRef = useRef(null);
+
+  // Smooth scroll progress beam
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 70%", "end 50%"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  return (
+    <section
+      id="journey"
+      ref={containerRef}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-transparent
+        px-5
+        py-24
+        text-white
+
+      
+      "
+    >
+      {/* =====================================================
+          CONTENT
+      ====================================================== */}
+
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-8xl p-10
+        "
+      >
+        {/* ===================================================
+            HEADER
+        ==================================================== */}
+
+        <motion.header
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="mb-24"
+        >
+          {/* section marker */}
+
+          <div className="mb-16 flex items-center gap-4">
+            <span className="h-px w-12 bg-white" />
+
+            <span
+              className="
+             text-2xl
+             uppercase
+             tracking-[0.35em]
+             font-extrabold
+           
+             !bg-gradient-to-r
+             from-white
+             via-cyan-100
+             to-cyan-400
+             !bg-clip-text
+             !text-transparent
+             drop-shadow-[0_0_12px_rgba(0,224,255,0.25)]
+           "
+            >
+              MY JOURNEY
+            </span>
+          </div>
+
+          {/* heading */}
+
+          {/* <div className="max-w-4xl">
+            <h2
+              className="
+                text-[clamp(3.2rem,8vw,7.5rem)]
+               
+                !leading-[0.88]
+                tracking-[-0.07em]
+                !bg-gradient-to-r
+                from-white
+                via-cyan-100
+                to-cyan-400 
+                 !bg-clip-text
+                !text-transparent
+              "
+            >
+               <span
+                className="
+                bg-gradient-to-r
+                from-white
+                via-cyan-100
+                to-cyan-400 bg-clip-text
+                !text-transparent
+                "
+              >
+                 Built over
+              </span>
+             
+              <br />
+
+              <span
+                className="
+                bg-gradient-to-r
+                from-white
+                via-cyan-100
+                to-cyan-400 bg-clip-text
+                !text-transparent
+                "
+              >
+                time.
+              </span>
+            </h2>
+
+            <p
+              className="
+                mt-8
+                max-w-2xl
+                text-base
+                leading-8
+                text-white
+
+                md:text-lg
+              "
+            >
+              From learning the fundamentals to building
+              production-ready applications — every stage has
+              shaped the way I think, build and solve problems.
+            </p>
+          </div> */}
+
+          {/* metadata */}
+
+          {/* <div
+            className="
+              mt-10
+              flex
+              flex-wrap
+              items-center
+              gap-3
+            "
+          >
+            <div
+              className="
+                rounded-full
+                border
+                border-white/[0.08]
+                bg-white/[0.025]
+                px-5
+                py-2.5
+                font-mono
+                text-[10px]
+                tracking-[0.2em]
+                text-white/40
+              "
+            >
+              2021 — PRESENT
+            </div>
+
+            <div
+              className="
+                rounded-full
+                border
+                border-cyan-400/20
+                bg-cyan-400/[0.05]
+                px-5
+                py-2.5
+                font-mono
+                text-[10px]
+                tracking-[0.2em]
+                text-cyan-400
+              "
+            >
+              CONTINUOUSLY BUILDING
+            </div>
+          </div> */}
+
+          <div className="flex items-end justify-between gap-10">
+            {/* LEFT CONTENT */}
+            <div className="max-w-4xl">
+              <h2
+                className="
+        text-[clamp(3.2rem,8vw,7.5rem)]
+        !leading-[0.88]
+        tracking-[-0.07em]
+        !bg-gradient-to-r
+        from-white
+        via-cyan-100
+        to-cyan-400
+        !bg-clip-text
+        !text-transparent
+      "
+              >
+                <span
+                  className="  !bg-gradient-to-r
+        from-white
+        via-cyan-100
+        to-cyan-400
+        !bg-clip-text
+        !text-transparent"
+                >
+                  Built over
+                </span>
+                <br />
+                <span
+                  className="  !bg-gradient-to-r
+        from-white
+        via-cyan-100
+        to-cyan-400
+        !bg-clip-text
+        !text-transparent"
+                >
+                  time.
+                </span>
+              </h2>
+
+              <p
+                className="
+        mt-8
+        max-w-2xl
+        text-base
+        leading-8
+        text-white
+        md:text-lg
+      "
+              >
+                From learning the fundamentals to building production-ready
+                applications — every stage has shaped the way I think, build and
+                solve problems.
+              </p>
+            </div>
+
+            {/* RIGHT CONTENT */}
+            <div className="hidden shrink-0 items-center gap-10 pb-2 md:flex">
+              <div className="text-right">
+                <div className="text-xs font-medium uppercase tracking-[0.25em] text-white">
+                  Journey
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white/90 group-hover:text-white transition-colors">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm text-white/40 leading-relaxed line-clamp-3">
-                  {item.description}
-                </p>
+
+                <div
+                  className="mt-2 text-sm font-medium tracking-[0.12em]   !bg-gradient-to-r
+        from-white
+        via-cyan-100
+        to-cyan-400
+        !bg-clip-text
+        !text-transparent "
+                >
+                  2021 — PRESENT
+                </div>
               </div>
 
-              <div className="relative z-10 flex items-center justify-between mt-4">
-                <span className="text-2xl font-black italic opacity-20 group-hover:opacity-100 transition-opacity duration-500">
-                  {item.year}
-                </span>
-                <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all -translate-x-4 group-hover:translate-x-0">
-                  <span className="text-xs">→</span>
+              <div className="h-10 w-px bg-cyan-200" />
+
+              <div className="text-right">
+                <div className="text-xs font-medium uppercase tracking-[0.25em] text-white">
+                  Status
+                </div>
+
+                <div
+                  className="mt-2 text-sm font-medium tracking-[0.12em]   !bg-gradient-to-r
+        from-white
+        via-cyan-100
+        to-cyan-400
+        !bg-clip-text
+        !text-transparent"
+                >
+                  CONTINUOUSLY BUILDING
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+        </motion.header>
+
+        {/* ===================================================
+            TIMELINE
+        ==================================================== */}
+
+        <div className="relative">
+          {/* Main timeline background track */}
+
+          <div
+            className="
+              absolute
+              bottom-5
+              left-[14px]
+              top-5
+              w-px
+              bg-white/10
+
+              md:left-1/2
+              md:-translate-x-1/2
+            "
+          />
+
+          {/* Animated interactive scroll progress beam */}
+
+          <motion.div
+            style={{ scaleY, transformOrigin: "top" }}
+            className="
+              absolute
+              bottom-5
+              left-[14px]
+              top-5
+              w-px
+             
+
+              bg-gradient-to-r
+              from-cyan-100
+              via-cyan-200
+              to-cyan-400
+             
+              shadow-[0_0_12px_rgba(34,211,238,0.8)]
+
+              md:left-1/2
+              md:-translate-x-1/2
+            "
+          />
+
+          {/* Items */}
+
+          <div className="space-y-0">
+            {journey.map((item, index) => (
+              <JourneyCard
+                key={`${item.year}-${item.title}`}
+                item={item}
+                index={index}
+              />
+            ))}
+          </div>
         </div>
+
+        {/* ===================================================
+            FOOTER
+        ==================================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="
+            mt-28
+            border-t
+            border-white/[0.07]
+            pt-12
+          "
+        >
+          <div
+            className="
+              grid
+              gap-10
+
+              md:grid-cols-[1fr_auto]
+              md:items-end
+            "
+          >
+            <div>
+              <span
+                className="
+                  
+                  text-xs
+                  tracking-[-0.04em]
+                  uppercase
+                  bg-gradient-to-r
+                  from-white
+                  via-cyan-100
+                  to-cyan-400 bg-clip-text
+                  !text-transparent font-extrabold
+                "
+              >
+                Still writing the story
+              </span>
+
+              <h3
+                className="
+                  mt-4
+                  max-w-3xl
+                  text-3xl
+                  font-bold
+                  tracking-[-0.04em]
+                  bg-gradient-to-r
+                  from-white
+                  via-cyan-200
+                  to-cyan-400 bg-clip-text
+                  !text-transparent
+                  md:text-5xl
+                "
+              >
+                The journey isn't finished.That's the point.
+                {/* <span className="   bg-gradient-to-r
+                  from-white
+                  via-cyan-100
+                  to-cyan-400 bg-clip-text
+                  !text-transparent ">
+                  {" "}
+                  That's the point.
+                </span> */}
+              </h3>
+            </div>
+
+            <div
+              className="
+                font-mono
+                text-xs
+               
+
+                md:text-right
+              "
+            >
+              <span
+                className=" !bg-gradient-to-r
+                  from-white
+                  via-cyan-200
+                  to-cyan-400 bg-clip-text
+                  !text-transparent"
+              >
+                STATUS
+              </span>
+
+              <div
+                className="mt-1  bg-gradient-to-r
+              from-white
+              via-cyan-100
+              to-cyan-400
+              bg-clip-text
+              text-transparent font-bold"
+              >
+                BUILDING / LEARNING / SHIPPING
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-
-// const achievements = [
-//   { year: "2022", title: "TalentPool@IET", description: "Gained exposure to projects and enhanced technical skills." },
-//   { year: "2023", title: "TalentHunt@IET", description: "Participated in coding competitions and workshops." },
-//   { year: "2024", title: "Full Stack Dev Internship – Edureka", description: "Learned MERN stack and built real-time applications." },
-//   { year: "2024", title: "JavaScript – HackerRank", description: "Mastered ES6+, DOM, async programming." },
-//   { year: "2025", title: "Node.js – HackerRank", description: "Built backend APIs with Express & MongoDB." },
-//   { year: "2025", title: "Web Dev Certification – Internshala", description: "Scored 84%. Learned responsive design & core web." },
-// ];
-
-// export default function Journey() {
-//   return (
-//     <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden px-6">
-
-//       {/* ===== Background like Hero ===== */}
-//       <div className="absolute inset-0 bg-[#0d1117]" />
-//       <div className="absolute inset-0 blur-[120px] bg-[radial-gradient(circle_at_20%_30%,#00e0ff55,transparent_40%),radial-gradient(circle_at_80%_70%,#ff4fff55,transparent_40%)]" />
-
-//       {/* ===== Center Core ===== */}
-//       <div className="relative z-10 text-center backdrop-blur-3xl bg-white/5 border border-white/10 rounded-[40px] px-16 py-20 shadow-[0_40px_120px_rgba(0,0,0,0.6)]">
-//         <h1 className="text-[clamp(3rem,6vw,5rem)] font-bold">
-//           My{" "}
-//           <span className="bg-gradient-to-r from-cyan-400 to-fuchsia-500 bg-clip-text text-transparent">
-//             Engineering Journey
-//           </span>
-//         </h1>
-//         <p className="text-white/50 mt-6 max-w-xl mx-auto">
-//           A progression of learning, building, breaking things, and leveling up as a developer.
-//         </p>
-//       </div>
-
-//       {/* ===== Floating Achievement Windows ===== */}
-//       {achievements.map((item, i) => (
-//         <FloatingCard key={i} item={item} index={i} />
-//       ))}
-//     </section>
-//   );
-// }
-
-// /* ================= Floating Cards ================= */
-
-// function FloatingCard({ item, index }) {
-//   const positions = [
-//     "top-[12%] left-[10%]",
-//     "top-[18%] right-[12%]",
-//     "bottom-[15%] left-[12%]",
-//     "bottom-[18%] right-[10%]",
-//     "top-[45%] left-[3%]",
-//     "top-[50%] right-[3%]",
-//   ];
-
-//   return (
-//     <div
-//       className={`absolute ${positions[index]} w-[280px] backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6
-//       shadow-[0_20px_60px_rgba(0,224,255,0.25)] text-white
-//       transition-all duration-700 hover:scale-105 hover:-translate-y-2`}
-//     >
-//       <div className="text-sm text-cyan-400 font-bold tracking-widest">
-//         {item.year}
-//       </div>
-
-//       <h3 className="text-lg font-semibold mt-3">
-//         {item.title}
-//       </h3>
-
-//       <p className="text-white/60 text-sm mt-3 leading-relaxed">
-//         {item.description}
-//       </p>
-//     </div>
-//   );
-// }
