@@ -394,7 +394,7 @@ const styles = {
     marginTop: '12px',
     color: '#00f3ff',
     fontFamily: "'Syncopate', sans-serif",
-    fontSize: 'clamp(11px, 2.5vw, 16px)',
+    
     fontWeight: 700,
     fontSize: 'clamp(9px, 2vw, 12px)',
     letterSpacing: '3px',
