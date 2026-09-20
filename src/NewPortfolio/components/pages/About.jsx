@@ -308,11 +308,11 @@ export default function About() {
         min-h-screen
         overflow-hidden
         bg-transparent
-        px-5
+        px-10
         py-28
         text-white
-        sm:px-8
-        lg:px-12
+        sm:px-2
+        lg:px-[150px]
       "
     >
    
@@ -542,7 +542,7 @@ export default function About() {
                       absolute
                       inset-0
                       animate-ping
-                      rounded-full
+                  
                       bg-cyan-400
                       opacity-50
                     "
@@ -553,7 +553,6 @@ export default function About() {
                       relative
                       h-2.5
                       w-2.5
-                      rounded-full
                       bg-cyan-400
                     "
                   />
@@ -626,23 +625,23 @@ export default function About() {
             >
 
               {/* glow behind card */}
-              <div
+              {/* <div
                 className="
                   pointer-events-none
                   absolute
                   inset-[10%]
-                  rounded-[40px]
+               
                   bg-cyan-400/80
                   blur-[80px]
                 "
-              />
+              /> */}
 
               {/* card */}
               <div
                 className="
                   relative
                   overflow-hidden
-                  rounded-[32px]
+             
                   border
                   border-white/[0.09]
                   bg-[#0a0d11]/90
@@ -707,7 +706,7 @@ export default function About() {
                 </div>
 
                 {/* card body */}
-                <div className="p-7 sm:p-9">
+                <div className="p-2 sm:p-9">
 
                   {/* identity */}
                   <div className="flex items-center gap-5">
@@ -723,7 +722,7 @@ export default function About() {
                         items-center
                         justify-center
                         overflow-hidden
-                        rounded-[24px]
+                      
                         border
                         border-cyan-400/20
                         bg-gradient-to-br
@@ -756,7 +755,6 @@ export default function About() {
                           right-2
                           h-2
                           w-2
-                          rounded-full
                           bg-green-400
                           shadow-[0_0_12px_rgba(74,222,128,0.8)]
                         "
@@ -794,7 +792,6 @@ export default function About() {
                   <div
                     className="
                       mt-9
-                      rounded-2xl
                       border
                       border-white/[0.06]
                       bg-white/[0.02]
@@ -828,7 +825,6 @@ export default function About() {
                       <div
                         key={stat.label}
                         className="
-                          rounded-2xl
                           border
                           border-white/[0.06]
                           bg-white/[0.02]
@@ -912,13 +908,12 @@ export default function About() {
 
                     </div>
 
-                    <div className="mt-4 h-1 overflow-hidden rounded-full bg-white/[0.05]">
+                    <div className="mt-4 h-1 overflow-hidden  bg-white/[0.05]">
 
                       <div
                         className="
                           h-full
                           w-[78%]
-                          rounded-full
                           bg-gradient-to-r
                           from-white
                           via-cyan-200
@@ -1051,7 +1046,7 @@ function Principle({ number, title, description }) {
         group
         relative
         overflow-hidden
-        rounded-[24px]
+     
         border
         border-white/[0.06]
         
@@ -1073,7 +1068,7 @@ function Principle({ number, title, description }) {
           -top-16
           h-32
           w-32
-          rounded-full
+     
           bg-cyan-400
           blur-[50px]
           opacity-0

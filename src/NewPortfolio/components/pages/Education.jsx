@@ -479,7 +479,7 @@ const Career = () => {
         text-white
         md:px-10
         md:py-36
-        lg:px-16
+        lg:px-[150px]
         xl:px-24
       "
     >
@@ -567,13 +567,12 @@ const Career = () => {
                     h-full
                     w-full
                     animate-ping
-                    rounded-full
                     bg-cyan-400
                     opacity-50
                   "
                 />
 
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-400" />
+                <span className="relative inline-flex h-2.5 w-2.5 bg-cyan-400" />
               </span>
 
               <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/35">
@@ -646,7 +645,6 @@ const Career = () => {
                       z-10
                       h-9
                       w-9
-                      rounded-full
                       border
                       flex
                       items-center
@@ -664,7 +662,6 @@ const Career = () => {
                       className={`
                         h-1.5
                         w-1.5
-                        rounded-full
                         transition-all
                         ${
                           activeYear
@@ -707,7 +704,6 @@ const Career = () => {
             relative
             min-h-[620px]
             overflow-hidden
-            rounded-[32px]
             border
             border-white/[0.07]
             bg-white/[0.018]
@@ -807,7 +803,6 @@ const Career = () => {
                         w-10
                         items-center
                         justify-center
-                        rounded-full
                         border
                         border-white/10
                         bg-white/[0.025]
@@ -924,7 +919,6 @@ const Career = () => {
                       <span
                         key={skill}
                         className="
-                          rounded-full
                           border
                           border-white/[0.08]
                           bg-white/[0.025]
@@ -971,7 +965,6 @@ const Career = () => {
                         w-11
                         items-center
                         justify-center
-                        rounded-full
                         border
                         border-white/[0.08]
                         bg-white/[0.02]
@@ -993,7 +986,6 @@ const Career = () => {
                         w-11
                         items-center
                         justify-center
-                        rounded-full
                         border
                         border-white/[0.08]
                         bg-white/[0.02]

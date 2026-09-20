@@ -251,7 +251,6 @@ const Contacts = () => {
             h-[500px]
             w-[700px]
             -translate-x-1/2
-            rounded-full
             bg-cyan-500/[0.035]
             blur-[150px]
           "
@@ -266,7 +265,6 @@ const Contacts = () => {
             right-[-10%]
             h-[400px]
             w-[400px]
-            rounded-full
             bg-emerald-500/[0.025]
             blur-[130px]
           "
@@ -304,7 +302,6 @@ const Contacts = () => {
               w-8
               items-center
               justify-center
-              rounded-lg
               border
               border-cyan-400/20
               bg-cyan-400/[0.05]
@@ -371,7 +368,7 @@ const Contacts = () => {
             max-w-2xl
             text-sm
             leading-7
-            text-zinc-500
+            text-white/[0.7]
             md:text-base
           "
         >
@@ -403,9 +400,8 @@ const Contacts = () => {
             className="
               relative
               overflow-hidden
-              rounded-2xl
               border
-              border-white/[0.07]
+              border-white/[0.7]
               bg-[#070a0a]/80
               p-7
               backdrop-blur-xl
@@ -449,7 +445,6 @@ const Contacts = () => {
                       inline-flex
                       h-2
                       w-2
-                      rounded-full
                       bg-emerald-400
                     "
                   />
@@ -469,13 +464,13 @@ const Contacts = () => {
               Open to opportunities.
             </h3>
 
-            <p className="mt-3 text-sm leading-6 text-zinc-500">
+            <p className="mt-3 text-sm leading-6 text-white/[0.7]">
               I'm always interested in interesting products,
               challenging engineering problems and meaningful
               collaborations.
             </p>
 
-            <div className="mt-7 flex items-center gap-3 font-mono text-[9px] text-zinc-600">
+            <div className="mt-7 flex items-center gap-3 font-mono text-[9px] text-white">
               <span className="text-emerald-400/60">
                 ●
               </span>
@@ -493,9 +488,8 @@ const Contacts = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="
               overflow-hidden
-              rounded-2xl
               border
-              border-white/[0.07]
+              border-white/[0.7]
               bg-[#070a0a]/80
               p-7
               backdrop-blur-xl
@@ -524,14 +518,13 @@ const Contacts = () => {
                     flex
                     items-center
                     justify-between
-                    rounded-xl
                     border
                     border-transparent
                     px-3
                     py-3
                     transition-all
                     duration-300
-                    hover:border-white/[0.07]
+                    hover:border-white/[0.7]
                     hover:bg-white/[0.025]
                   "
                 >
@@ -543,9 +536,8 @@ const Contacts = () => {
                         w-9
                         items-center
                         justify-center
-                        rounded-lg
                         border
-                        border-white/[0.06]
+                        border-white/[0.6]
                         bg-black/30
                         text-sm
                         text-zinc-400
@@ -563,7 +555,7 @@ const Contacts = () => {
                         {social.name}
                       </p>
 
-                      <p className="mt-0.5 font-mono text-[8px] text-zinc-600">
+                      <p className="mt-0.5 font-mono text-[8px] text-white">
                         {social.username}
                       </p>
                     </div>
@@ -597,9 +589,8 @@ const Contacts = () => {
               group
               relative
               overflow-hidden
-              rounded-2xl
               border
-              border-white/[0.07]
+              border-white/[0.7]
               bg-[#070a0a]/80
               p-6
               text-left
@@ -611,7 +602,7 @@ const Contacts = () => {
             "
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-zinc-600">
+              <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-white">
                 02 // email
               </span>
 
@@ -626,7 +617,7 @@ const Contacts = () => {
               {email}
             </p>
 
-            <p className="mt-2 font-mono text-[8px] text-zinc-600">
+            <p className="mt-2 font-mono text-[8px] text-white">
               {copied ? "email_copied ✓" : "click_to_copy"}
             </p>
           </motion.button>
@@ -644,7 +635,6 @@ const Contacts = () => {
           className="
             relative
             overflow-hidden
-            rounded-2xl
             border
             border-white/[0.07]
             bg-[#070a0a]/90
@@ -691,7 +681,7 @@ const Contacts = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/60" />
               </div>
 
-              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-zinc-500">
+              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/[0.7]">
                 contact_terminal
               </span>
             </div>
@@ -720,11 +710,11 @@ const Contacts = () => {
                 ~/contact
               </span>
 
-              <span className="text-zinc-600">
+              <span className="text-white">
                 $
               </span>
 
-              <span className="ml-2 text-zinc-500">
+              <span className="ml-2 text-white/[0.7]">
                 ./send_message.sh
               </span>
             </div>
@@ -749,7 +739,7 @@ const Contacts = () => {
                       text-[9px]
                       uppercase
                       tracking-[0.2em]
-                      text-zinc-600
+                      text-white
                       transition-colors
                       group-focus-within:text-cyan-400/70
                     "
@@ -798,7 +788,7 @@ const Contacts = () => {
                       text-[9px]
                       uppercase
                       tracking-[0.2em]
-                      text-zinc-600
+                      text-white
                       transition-colors
                       group-focus-within:text-cyan-400/70
                     "
@@ -850,7 +840,7 @@ const Contacts = () => {
                     text-[9px]
                     uppercase
                     tracking-[0.2em]
-                    text-zinc-600
+                    text-white
                     transition-colors
                     group-focus-within:text-cyan-400/70
                   "
@@ -897,14 +887,14 @@ const Contacts = () => {
 
                 {/* Terminal status */}
 
-                <div className="font-mono text-[9px] leading-5 text-zinc-700">
+                <div className="font-mono text-[9px] leading-5 text-emerald-400/60">
                   <span className="text-emerald-400/60">
                     ●
                   </span>{" "}
                   connection_ready
                   <br />
 
-                  <span className="text-zinc-600">
+                  <span className="text-white">
                     encryption: enabled
                   </span>
                 </div>
@@ -921,7 +911,6 @@ const Contacts = () => {
                     justify-center
                     gap-3
                     overflow-hidden
-                    rounded-lg
                     border
                     border-cyan-400/20
                     bg-cyan-400/[0.06]
@@ -959,14 +948,35 @@ const Contacts = () => {
           {/* Bottom terminal line */}
 
           <div className="border-t border-white/[0.04] px-6 py-3 md:px-8">
-            <div className="font-mono text-[8px] text-zinc-700">
+          <div className="mb-8 font-mono text-[10px]">
+              <span className="text-emerald-400/70">
+                amrit@dev
+              </span>
+
+              <span className="text-zinc-700">
+                :
+              </span>
+
+              <span className="text-cyan-400/70">
+                ~/contact
+              </span>
+
+              <span className="text-white">
+                $
+              </span>
+
+              <span className="ml-2 text-white/[0.7]">
+              awaiting_input
+              </span>
+            </div>
+            {/* <div className="font-mono text-[8px] text-zinc-700">
               amrit@dev:~/contact${" "}
-              <span className="text-zinc-600">
+              <span className="text-white">
                 awaiting_input
               </span>
 
               <span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-400/50 align-middle" />
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

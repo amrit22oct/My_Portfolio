@@ -680,7 +680,6 @@ const GithubStats = () => {
             h-[500px]
             w-[700px]
             -translate-x-1/2
-            rounded-full
             bg-cyan-500/[0.025]
             blur-[140px]
           "
@@ -693,7 +692,6 @@ const GithubStats = () => {
             left-0
             h-[300px]
             w-[300px]
-            rounded-full
             bg-purple-500/[0.02]
             blur-[120px]
           "
@@ -709,7 +707,7 @@ const GithubStats = () => {
           {/* Terminal Label */}
 
           <div className="mb-5 flex items-center gap-3 font-mono">
-            <span className="flex h-7 w-7 items-center justify-center rounded-md border border-cyan-400/20 bg-cyan-400/[0.06] text-cyan-400">
+            <span className="flex h-7 w-7 items-center justify-center  border border-cyan-400/20 bg-cyan-400/[0.06] text-cyan-400">
               <FaTerminal className="text-[11px]" />
             </span>
 
@@ -769,7 +767,6 @@ const GithubStats = () => {
             items-center
             gap-3
             self-start
-            rounded-lg
             border
             border-white/10
             bg-white/[0.025]
@@ -824,7 +821,6 @@ const GithubStats = () => {
           className="
             relative
             overflow-hidden
-            rounded-2xl
             border
             border-white/[0.07]
             bg-[#070a0a]/80
@@ -857,7 +853,6 @@ const GithubStats = () => {
                 className="
                   absolute
                   inset-0
-                  rounded-full
                   bg-cyan-400/20
                   blur-xl
                 "
@@ -870,7 +865,6 @@ const GithubStats = () => {
                   relative
                   h-16
                   w-16
-                  rounded-full
                   border
                   border-white/10
                   object-cover
@@ -884,7 +878,6 @@ const GithubStats = () => {
                   right-0
                   h-3
                   w-3
-                  rounded-full
                   border-2
                   border-[#070a0a]
                   bg-emerald-400
@@ -937,7 +930,7 @@ const GithubStats = () => {
 
           {/* Bottom Command */}
 
-          <div className="mt-6 rounded-lg border border-white/[0.05] bg-black/30 px-4 py-3">
+          <div className="mt-6 border border-white/[0.05] bg-black/30 px-4 py-3">
             <span className="font-mono text-[9px] text-cyan-400/70">
               amrit@dev:~${" "}
             </span>
@@ -960,7 +953,7 @@ const GithubStats = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="
-            rounded-2xl
+            
             border
             border-white/[0.07]
             bg-[#070a0a]/80
@@ -1011,7 +1004,7 @@ const GithubStats = () => {
                   </span>
                 </div>
 
-                <div className="h-[3px] overflow-hidden rounded-full bg-white/[0.045]">
+                <div className="h-[3px] overflow-hidden  bg-white/[0.045]">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${tech.level}%` }}
@@ -1021,7 +1014,7 @@ const GithubStats = () => {
                       delay: index * 0.12,
                       ease: "easeOut",
                     }}
-                    className="h-full rounded-full"
+                    className="h-full "
                     style={{
                       backgroundColor: tech.color,
                     }}
@@ -1052,7 +1045,6 @@ const GithubStats = () => {
                 group
                 relative
                 overflow-hidden
-                rounded-2xl
                 border
                 border-white/[0.07]
                 bg-[#070a0a]/80
@@ -1069,7 +1061,6 @@ const GithubStats = () => {
                   -top-10
                   h-24
                   w-24
-                  rounded-full
                   bg-cyan-400/[0.04]
                   blur-2xl
                   transition-opacity
@@ -1127,7 +1118,6 @@ const GithubStats = () => {
           className="
             relative
             overflow-hidden
-            rounded-2xl
             border
             border-white/[0.07]
             bg-[#070a0a]/80
@@ -1157,7 +1147,7 @@ const GithubStats = () => {
           <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <div className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                <span className="h-1.5 w-1.5 animate-pulse bg-emerald-400" />
 
                 <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-emerald-400/60">
                   02 // activity.log
@@ -1178,8 +1168,7 @@ const GithubStats = () => {
 
           <div
             className="
-              overflow-x-auto
-              rounded-xl
+              overflow-x-auto flex items-center justify-center
               border
               border-white/[0.04]
               bg-black/20

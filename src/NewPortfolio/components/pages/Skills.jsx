@@ -256,7 +256,6 @@ function TechCard({ tech, index }) {
           pointer-events-none
           absolute
           -inset-2
-          rounded-3xl
           opacity-0
           blur-xl
           transition-all
@@ -274,7 +273,6 @@ function TechCard({ tech, index }) {
         className={`
           relative
           overflow-hidden
-          rounded-2xl
           border
           bg-[#080a0e]/90
           backdrop-blur-xl
@@ -312,7 +310,7 @@ function TechCard({ tech, index }) {
 
         {tech.featured && (
           <div className="absolute right-3 top-3">
-            <span className="rounded-full border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1 font-mono text-[7px] uppercase tracking-[0.2em] text-cyan-400/70">
+            <span className=" border border-cyan-400/20 bg-cyan-400/[0.06] px-2 py-1 font-mono text-[7px] uppercase tracking-[0.2em] text-cyan-400/70">
               Primary
             </span>
           </div>
@@ -328,7 +326,7 @@ function TechCard({ tech, index }) {
               w-11
               items-center
               justify-center
-              rounded-xl
+              
               border
               border-white/[0.07]
               bg-white/[0.025]
@@ -391,7 +389,7 @@ function TechCard({ tech, index }) {
 
           <div className="mt-5 flex items-center gap-2">
             <span
-              className="h-2 w-2 rounded-full"
+              className="h-2 w-2"
               style={{
                 backgroundColor: tech.color,
                 boxShadow: `0 0 8px ${tech.color}`,
@@ -440,7 +438,7 @@ function ArchitectureNode({ icon: Icon, title, subtitle, color, index }) {
           shrink-0
           items-center
           justify-center
-          rounded-xl
+          
           border
           border-white/[0.08]
           bg-white/[0.025]
@@ -476,10 +474,10 @@ export default function SkillsPerspective() {
         relative
         w-full
         overflow-hidden
-        px-5
+       
         py-32
-        sm:px-8
-        lg:px-12
+        sm:px-4
+        lg:px-[150px]
       "
     >
       {/* =====================================================
@@ -720,7 +718,6 @@ export default function SkillsPerspective() {
             relative
             mb-24
             overflow-hidden
-            rounded-[28px]
             border
             border-white/[0.07]
             bg-[#080a0e]/80
@@ -745,7 +742,7 @@ export default function SkillsPerspective() {
             "
           >
             <div className="flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(0,224,255,0.8)]" />
+              <span className="h-2 w-2  bg-cyan-400 shadow-[0_0_12px_rgba(0,224,255,0.8)]" />
 
               <span
                 className=" text-xs uppercase tracking-[0.3em]  bg-gradient-to-r
@@ -989,7 +986,6 @@ export default function SkillsPerspective() {
           className="
             mt-24
             overflow-hidden
-            rounded-[24px]
             border
             border-cyan-400/[0.12]
             bg-cyan-400/[0.025]
@@ -1016,7 +1012,6 @@ export default function SkillsPerspective() {
                 w-10
                 items-center
                 justify-center
-                rounded-xl
                 border
                 border-cyan-400/20
                 bg-cyan-400/[0.05]
@@ -1026,7 +1021,6 @@ export default function SkillsPerspective() {
                   className="
                   h-2
                   w-2
-                  rounded-full
                   bg-cyan-400
                   shadow-[0_0_15px_rgba(0,224,255,0.9)]
                 "

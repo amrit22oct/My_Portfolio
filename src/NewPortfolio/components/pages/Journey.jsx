@@ -85,7 +85,6 @@ function TechPill({ children }) {
   return (
     <span
       className="
-        rounded-full
         border border-white/[0.08]
         bg-white/[0.035]
         px-3 py-1.5
@@ -233,7 +232,7 @@ function JourneyCard({ item, index }) {
             shrink-0
             items-center
             justify-center
-            rounded-full
+           
             border
             border-white/10
             bg-[#07090c]
@@ -247,7 +246,7 @@ function JourneyCard({ item, index }) {
             className={`
               h-2.5
               w-2.5
-              rounded-full
+             
               ${style.dot}
               ${isCurrent ? "animate-pulse" : ""}
             `}
@@ -308,11 +307,11 @@ function JourneyCard({ item, index }) {
 
           mb-14
           overflow-hidden
-          rounded-[28px]
+      
           border
           border-white/[0.07]
           bg-white/[0.025]
-          p-7
+          p-3
           backdrop-blur-xl
 
           transition-all
@@ -329,8 +328,8 @@ function JourneyCard({ item, index }) {
 
           ${
             isLeft
-              ? "md:col-start-1 md:row-start-1 md:mr-8"
-              : "md:col-start-3 md:row-start-1 md:ml-8"
+              ?  "md:col-start-1 md:row-start-1 md:mr-8"
+              :  "md:col-start-3 md:row-start-1 md:ml-8"
           }
         `}
       >
@@ -346,7 +345,7 @@ function JourneyCard({ item, index }) {
             -top-24
             h-48
             w-48
-            rounded-full
+        
             bg-gradient-to-br
             ${style.accent}
             opacity-[0.07]
@@ -370,7 +369,7 @@ function JourneyCard({ item, index }) {
             -left-24
             h-40
             w-40
-            rounded-full
+         
             bg-gradient-to-br
             ${style.accent}
             opacity-[0.025]
@@ -402,7 +401,7 @@ function JourneyCard({ item, index }) {
               className={`
                 h-1.5
                 w-1.5
-                rounded-full
+           
                 ${style.dot}
               `}
             />
@@ -428,10 +427,10 @@ function JourneyCard({ item, index }) {
             </span>
           </div>
 
-          {isCurrent && (
+          {/* {isCurrent && (
             <span
               className="
-                rounded-full
+            
                 border
                 border-cyan-400/20
                 bg-cyan-400/[0.06]
@@ -447,7 +446,7 @@ function JourneyCard({ item, index }) {
             >
               CURRENT
             </span>
-          )}
+          )} */}
         </div>
 
         {/* ===================================================
@@ -569,7 +568,7 @@ export default function Journey() {
         min-h-screen
         overflow-hidden
         bg-transparent
-        px-5
+        px-10 sm:px-2  lg:px-[150px]
         py-24
         text-white
 
@@ -585,7 +584,7 @@ export default function Journey() {
           relative
           z-10
           mx-auto
-          max-w-8xl p-10
+          max-w-8xl p-2
         "
       >
         {/* ===================================================

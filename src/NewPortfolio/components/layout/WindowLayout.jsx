@@ -58,7 +58,7 @@ const WindowLayout = ({ children, showFooter = true }) => {
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
 
-        <main className="flex-1 pt-[120px]">
+        <main className="flex-1 pt-[120px]  md:px-[140px] p-0 ">
           {children}
         </main>
 
