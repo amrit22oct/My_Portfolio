@@ -163,116 +163,13 @@ const Footer = () => {
             BRAND AREA
         ===================================================== */}
 
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
-            {/* Terminal label */}
-            <div className="mb-7 flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.25em] text-zinc-600">
-              <Terminal size={13} className="text-cyan-400/60" />
-
-              <span>~/portfolio</span>
-
-              <span className="text-zinc-800">/</span>
-
-              <span className="text-emerald-400/50">
-                session_complete
-              </span>
-            </div>
-
-            {/* Big brand */}
-            <div className="relative inline-block">
-              <h2 className="select-none text-[clamp(4rem,10vw,9rem)] font-black leading-[0.78] tracking-[-0.085em] text-white">
-                AMRIT
-              </h2>
-
-              <div className="flex items-center gap-4 pl-1 md:gap-6">
-                <span className="font-mono text-[clamp(2rem,4vw,4rem)] font-light leading-none text-cyan-400">
-                  /
-                </span>
-
-                <span className="text-[clamp(2.5rem,6vw,5.5rem)] font-black leading-[0.8] tracking-[-0.075em] text-white/[0.22]">
-                  RAI
-                </span>
-              </div>
-
-              {/* Accent line */}
-              <div className="mt-7 flex items-center gap-3 pl-1">
-                <span className="h-px w-12 bg-cyan-400/50" />
-
-                <span className="font-mono text-[9px] uppercase tracking-[0.28em] text-zinc-600">
-                  Full Stack Developer
-                </span>
-
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.5)]" />
-              </div>
-            </div>
-          </div>
-
-          {/* ===================================================
-              RIGHT SIDE
-          =================================================== */}
-
-          <div className="flex flex-col items-start gap-6 lg:items-end">
-            <p className="max-w-[330px] text-left text-sm leading-7 text-zinc-500 lg:text-right">
-              Building modern digital experiences with clean
-              architecture, thoughtful design, and scalable code.
-            </p>
-
-            {/* Social links */}
-            <div className="flex items-center gap-2">
-              {socials.map((social) => {
-                const Icon = social.icon;
-
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target={social.name === "Email" ? undefined : "_blank"}
-                    rel={
-                      social.name === "Email"
-                        ? undefined
-                        : "noopener noreferrer"
-                    }
-                    aria-label={social.name}
-                    className="
-                      group
-                      relative
-                      flex
-                      h-11
-                      w-11
-                      items-center
-                      justify-center
-                      overflow-hidden
-                      rounded-xl
-                      border
-                      border-white/[0.07]
-                      bg-white/[0.025]
-                      text-zinc-500
-                      transition-all
-                      duration-300
-                      hover:-translate-y-1
-                      hover:border-cyan-400/30
-                      hover:bg-cyan-400/[0.06]
-                      hover:text-cyan-400
-                    "
-                  >
-                    <Icon
-                      size={15}
-                      className="relative z-10 transition-transform duration-300 group-hover:scale-110"
-                    />
-
-                    <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-cyan-400 transition-transform duration-300 group-hover:scale-x-100" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+       
 
         {/* =========================================================
             DIVIDER
         ========================================================= */}
 
-        <div className="my-14 h-px w-full bg-gradient-to-r from-white/[0.08] via-white/[0.04] to-transparent" />
+        
 
         {/* =========================================================
             LOWER NAVIGATION
@@ -280,22 +177,22 @@ const Footer = () => {
 
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           {/* Left */}
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-[8px] uppercase tracking-[0.2em] text-zinc-700">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 font-mono text-[8px] uppercase tracking-[0.2em] text-white">
             <span>React</span>
 
-            <span className="text-zinc-900">•</span>
+            <span className="text-white">•</span>
 
             <span>Tailwind</span>
 
-            <span className="text-zinc-900">•</span>
+            <span className="text-white">•</span>
 
             <span>Framer Motion</span>
 
-            <span className="text-zinc-900">•</span>
+            <span className="text-white">•</span>
 
             <span>Java</span>
 
-            <span className="text-zinc-900">•</span>
+            <span className="text-white">•</span>
 
             <span>Spring Boot</span>
           </div>
@@ -313,7 +210,7 @@ const Footer = () => {
               text-[9px]
               uppercase
               tracking-[0.22em]
-              text-zinc-600
+              text-white
               transition-colors
               duration-300
               hover:text-cyan-400
@@ -359,7 +256,7 @@ const Footer = () => {
             <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/50" />
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/50" />
 
-            <span className="ml-3 font-mono text-[7px] uppercase tracking-[0.2em] text-zinc-700">
+            <span className="ml-3 font-mono text-[7px] uppercase tracking-[0.2em] text-white">
               terminal — bash
             </span>
           </div>
@@ -367,23 +264,23 @@ const Footer = () => {
           {/* Terminal content */}
           <div className="flex flex-col gap-3 px-4 py-4 font-mono text-[8px] uppercase tracking-[0.16em] sm:flex-row sm:items-center sm:justify-between sm:px-5">
             <div className="flex items-center gap-2">
-              <span className="text-emerald-400/50">amrit@dev</span>
+              <span className="text-emerald-400">amrit@dev</span>
               <span className="text-zinc-800">:</span>
-              <span className="text-cyan-400/40">~</span>
-              <span className="text-zinc-700">$</span>
+              <span className="text-cyan-400">~</span>
+              <span className="text-white">$</span>
 
-              <span className="text-zinc-600">
+              <span className="text-white">
                 system.shutdown
               </span>
 
               <span className="ml-1 inline-block h-2.5 w-1 animate-pulse bg-cyan-400/50" />
             </div>
 
-            <div className="flex items-center gap-3 text-zinc-700">
+            <div className="flex items-center gap-3 text-white">
               <span>status</span>
 
-              <span className="flex items-center gap-1.5 text-emerald-400/50">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/60" />
+              <span className="flex items-center gap-1.5 text-emerald-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 operational
               </span>
             </div>
@@ -394,7 +291,7 @@ const Footer = () => {
             COPYRIGHT
         ========================================================= */}
 
-        <div className="mt-6 flex flex-col gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-800 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 flex flex-col gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white sm:flex-row sm:items-center sm:justify-between">
           <span>© {currentYear} Amrit Rai</span>
 
           <div className="flex items-center gap-3">

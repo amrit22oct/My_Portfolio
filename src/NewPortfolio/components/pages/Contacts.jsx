@@ -172,6 +172,35 @@
 // export default Contacts;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -305,7 +334,7 @@ const Contacts = () => {
               border
               border-cyan-400/20
               bg-cyan-400/[0.05]
-              text-cyan-400
+             text-cyan-400
             "
           >
             <FaTerminal className="text-xs" />
@@ -450,12 +479,12 @@ const Contacts = () => {
                   />
                 </span>
 
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400/70">
+                <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-emerald-400">
                   Available
                 </span>
               </div>
 
-              <span className="font-mono text-[8px] text-zinc-700">
+              <span className="font-mono text-[8px] text-white">
                 STATUS_200
               </span>
             </div>
@@ -681,12 +710,12 @@ const Contacts = () => {
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/60" />
               </div>
 
-              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white/[0.7]">
+              <span className="font-mono text-[9px] uppercase tracking-[0.15em] text-white">
                 contact_terminal
               </span>
             </div>
 
-            <span className="hidden font-mono text-[8px] text-zinc-700 sm:block">
+            <span className="hidden font-mono text-[8px] text-white sm:block">
               bash — 80x24
             </span>
           </div>
@@ -904,43 +933,48 @@ const Contacts = () => {
                 <button
                   type="submit"
                   className="
-                    group
-                    relative
-                    flex
-                    items-center
-                    justify-center
-                    gap-3
-                    overflow-hidden
-                    border
-                    border-cyan-400/20
-                    bg-cyan-400/[0.06]
-                    px-6
-                    py-3.5
-                    font-mono
-                    text-[9px]
-                    font-bold
-                    uppercase
-                    tracking-[0.2em]
-                    text-cyan-300
-                    transition-all
-                    duration-300
-                    hover:border-cyan-400/50
-                    hover:bg-cyan-400/[0.12]
-                    hover:text-cyan-200
+                  inline-flex
+                  items-center
+                  gap-3
+                  self-start
+                  border
+                  border-white/10
+                  bg-white/[0.025]
+                  px-5
+                  py-3
+                  font-mono
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  !text-zinc-300
+                  transition-all
+                  duration-300
+                  hover:!border-cyan-400/30
+                  hover:!bg-cyan-400/[0.05]
+                  hover:!text-cyan-300
+                  md:self-end
                   "
                 >
                   <FaPaperPlane
                     className="
-                      text-[10px]
-                      transition-transform
-                      duration-300
-                      group-hover:translate-x-1
-                      group-hover:-translate-y-1
+                    !text-[9px]
+                    opacity-50
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
                     "
                   />
 
                   Execute Send
                 </button>
+
+
+
+
+                
+       
               </div>
             </form>
           </div>
@@ -1003,7 +1037,7 @@ const Contacts = () => {
           text-[8px]
           uppercase
           tracking-[0.2em]
-          text-zinc-700
+          text-white
           sm:flex-row
         "
       >
@@ -1015,7 +1049,7 @@ const Contacts = () => {
           protocol: https
         </span>
 
-        <span className="text-emerald-400/40">
+        <span className="text-emerald-300">
           system: ready
         </span>
       </motion.div>

@@ -473,19 +473,64 @@ const Hero = () => {
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <a
                   href="#projects" 
-                  className="group inline-flex items-center gap-2  border border-white/[0.09] bg-white/[0.025] px-5 py-3 text-md font-medium !text-zinc-300 backdrop-blur-md transition-all duration-300 hover:border-white/20   hover:bg-white/[0.07] hover:text-white active:scale-[0.98] sm:py-3.5"
+                  className=" inline-flex
+                  items-center
+                  gap-3
+                  self-start
+                  border
+                  border-white/10
+                  bg-white/[0.025]
+                  px-5
+                  py-3
+                  font-mono
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  !text-zinc-300
+                  transition-all
+                  duration-300
+                  hover:!border-cyan-400/30
+                  hover:!bg-cyan-400/[0.05]
+                  hover:!text-cyan-300
+                  md:self-end"
                 >
                   View Selected Work
 
                   <ArrowUpRight
                     size={17}
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="   !text-[9px]
+                    opacity-50
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5"
                   />
                 </a>
 
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.025] px-5 py-3 text-md font-medium text-zinc-300 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07] hover:text-white active:scale-[0.98] sm:py-3.5"
+                  className="inline-flex
+                  items-center
+                  gap-3
+                  self-start
+                  border
+                  border-white/10
+                  bg-white/[0.025]
+                  px-5
+                  py-3
+                  font-mono
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-[0.18em]
+                  !text-zinc-300
+                  transition-all
+                  duration-300
+                  hover:!border-cyan-400/30
+                  hover:!bg-cyan-400/[0.05]
+                  hover:!text-cyan-300
+                  md:self-end"
                 >
                   {copied ? (
                     <Check size={16} className="text-emerald-400" />
@@ -493,7 +538,12 @@ const Hero = () => {
                     <Copy size={16} />
                   )}
 
-                  <span>{copied ? "Email Copied!" : "Copy Email"}</span>
+                  <span className="!text-[9px]
+                    opacity-50
+                    transition-transform
+                    duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5">{copied ? "Email Copied!" : "Copy Email"}</span>
                 </button>
               </div>
 

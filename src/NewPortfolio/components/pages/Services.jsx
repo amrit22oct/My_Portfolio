@@ -564,6 +564,12 @@
 
 
 
+
+
+
+
+
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -777,12 +783,12 @@ const GithubStats = () => {
             font-bold
             uppercase
             tracking-[0.18em]
-            text-zinc-300
+            !text-zinc-300
             transition-all
             duration-300
-            hover:border-cyan-400/30
-            hover:bg-cyan-400/[0.05]
-            hover:text-cyan-300
+            hover:!border-cyan-400/30
+            hover:!bg-cyan-400/[0.05]
+            hover:!text-cyan-300
             md:self-end
           "
         >
@@ -792,7 +798,7 @@ const GithubStats = () => {
 
           <FaArrowRight
             className="
-              text-[9px]
+              !text-[9px]
               opacity-50
               transition-transform
               duration-300
@@ -890,7 +896,7 @@ const GithubStats = () => {
                 Amrit Rai
               </h3>
 
-              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.15em] text-zinc-500">
+              <p className="mt-1 font-mono text-[9px] uppercase tracking-[0.15em] text-white">
                 Full Stack Developer
               </p>
             </div>
@@ -898,12 +904,12 @@ const GithubStats = () => {
 
           {/* Divider */}
 
-          <div className="my-6 h-px bg-white/[0.06]" />
+          <div className="my-6 h-px bg-white/[0.6]" />
 
           {/* Terminal Status */}
 
           <div className="font-mono text-[10px] leading-7">
-            <div className="text-zinc-600">
+            <div className="text-emerald-400">
               $ systemctl status developer
             </div>
 
@@ -911,7 +917,7 @@ const GithubStats = () => {
               ● active (running)
             </div>
 
-            <div className="mt-3 text-zinc-600">
+            <div className="mt-3 text-zinc-400">
               $ environment
             </div>
 
@@ -931,11 +937,11 @@ const GithubStats = () => {
           {/* Bottom Command */}
 
           <div className="mt-6 border border-white/[0.05] bg-black/30 px-4 py-3">
-            <span className="font-mono text-[9px] text-cyan-400/70">
+            <span className="font-mono text-[9px] !text-cyan-400">
               amrit@dev:~${" "}
             </span>
 
-            <span className="font-mono text-[9px] text-zinc-500">
+            <span className="font-mono text-[9px] text-white/78">
               git status
             </span>
 
@@ -966,7 +972,7 @@ const GithubStats = () => {
 
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-cyan-400/60">
+              <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-cyan-400">
                 01 // stack
               </p>
 
@@ -975,7 +981,7 @@ const GithubStats = () => {
               </h3>
             </div>
 
-            <div className="font-mono text-[9px] text-zinc-700">
+            <div className="font-mono text-[9px] text-white">
               5 MODULES
             </div>
           </div>
@@ -994,12 +1000,12 @@ const GithubStats = () => {
                       {tech.icon}
                     </span>
 
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-white">
                       {tech.name}
                     </span>
                   </div>
 
-                  <span className="font-mono text-[9px] text-zinc-600">
+                  <span className="font-mono text-[9px] text-white">
                     {tech.level}%
                   </span>
                 </div>
@@ -1087,7 +1093,7 @@ const GithubStats = () => {
                     {stat.icon}
                   </span>
 
-                  <span className="font-mono text-[8px] text-zinc-700">
+                  <span className="font-mono text-[8px] text-white">
                     0{index + 1}
                   </span>
                 </div>
@@ -1097,7 +1103,7 @@ const GithubStats = () => {
                     {stat.value}
                   </div>
 
-                  <div className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-zinc-600">
+                  <div className="mt-1 font-mono text-[8px] uppercase tracking-[0.16em] text-white">
                     {stat.label}
                   </div>
                 </div>
@@ -1149,7 +1155,7 @@ const GithubStats = () => {
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 animate-pulse bg-emerald-400" />
 
-                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-emerald-400/60">
+                <span className="font-mono text-[9px] uppercase tracking-[0.25em] text-emerald-400">
                   02 // activity.log
                 </span>
               </div>
@@ -1159,7 +1165,7 @@ const GithubStats = () => {
               </h3>
             </div>
 
-            <div className="font-mono text-[9px] text-zinc-600">
+            <div className="font-mono text-[9px] text-white">
               github.com/amrit22oct
             </div>
           </div>
@@ -1195,12 +1201,12 @@ const GithubStats = () => {
           {/* Footer */}
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-            <div className="font-mono text-[9px] text-zinc-600">
-              <span className="text-zinc-500">amrit@github:~$</span>{" "}
+            <div className="font-mono text-[9px] text-white">
+              <span className="text-emerald-300">amrit@github:~$</span>{" "}
               contribution --visualize
             </div>
 
-            <div className="flex items-center gap-2 font-mono text-[8px] uppercase tracking-widest text-zinc-600">
+            <div className="flex items-center gap-2 font-mono text-[8px] uppercase tracking-widest text-white">
               Less
 
               <span className="h-2.5 w-2.5 rounded-[2px] bg-[#0a0f0d]" />
@@ -1219,7 +1225,7 @@ const GithubStats = () => {
           BOTTOM DECORATIVE TERMINAL TEXT
       ====================================================== */}
 
-      <div className="pointer-events-none mt-8 hidden justify-between px-1 font-mono text-[8px] uppercase tracking-[0.25em] text-white/[0.08] md:flex">
+      <div className="pointer-events-none mt-8 hidden justify-between px-1 font-mono text-[8px] uppercase tracking-[0.25em] text-white md:flex">
         <span>connection: github</span>
         <span>protocol: https</span>
         <span>status: synchronized</span>
